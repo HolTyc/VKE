@@ -1,0 +1,16 @@
+# Hashes of file build rules.
+1f5b668a3074c6388b6adeea20da5fad CMakeFiles/vke_shaders
+1fa81b25a420f62d50fc7e9a719f6c5b _deps/tinyobjloader-build/CMakeFiles/uninstall
+2df7d1b482f075b630edf69908565fd3 assets/shaders/backrooms/carpet.frag.spv
+bbd45804b45af6ab9665b8817b6cddc0 assets/shaders/backrooms/ceiling.frag.spv
+289a2adf50255f5572c0a4c373ff2f45 assets/shaders/backrooms/level.vert.spv
+514cc0bb1b3fe8969e9553560f582247 assets/shaders/backrooms/wall.frag.spv
+09aa48d09c17154a00dd54eba8341fde assets/shaders/basic.frag.spv
+243fb352912adfa56015793d0db87543 assets/shaders/basic.vert.spv
+a3d31024383d77d8f86cc213e60708e6 assets/shaders/checker.frag.spv
+6805f2fed9f5f952ad30cb52831a7cf3 assets/shaders/matcap.frag.spv
+b2d8d15c4c09afc3d3ff51ec2ca5eee7 assets/shaders/normal.frag.spv
+256a02f1ca973ab37f76c266261f96df assets/shaders/rim.frag.spv
+eb18e5c92c27e9b4b222a85c37b5ccd7 assets/shaders/toon.frag.spv
+9fb94d9d7ccd64e895450c4db1e6e215 assets/shaders/toon.vert.spv
+1ef93eb4bdfa67363ed743e2ec5d3246 projects/backrooms/CMakeFiles/backrooms_shaders

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libvke.a CMakeFiles/vke.dir/engine/src/core/Application.cpp.o CMakeFiles/vke.dir/engine/src/core/Core.cpp.o CMakeFiles/vke.dir/engine/src/core/Window.cpp.o CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o
+/usr/bin/ranlib libvke.a

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/backrooms.dir/src/Audio.cpp.o CMakeFiles/backrooms.dir/src/main.cpp.o -o ../../backrooms  ../../libvke.a -ldl -lm ../../libimgui_vulkan.a /usr/lib/x86_64-linux-gnu/libvulkan.so /usr/lib/x86_64-linux-gnu/libglfw.so.3.3 ../../_deps/tinyobjloader-build/libtinyobjloader.a 
