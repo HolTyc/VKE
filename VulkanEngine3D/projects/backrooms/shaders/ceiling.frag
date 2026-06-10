@@ -117,7 +117,7 @@ void main() {
         } else {
             float t  = push.albedo.a;
             float fl = flicker(t, panelHash(hc));
-            vec3 glow = vec3(1.95, 1.92, 1.72) * fl; // bright near-white tubes
+            vec3 glow = vec3(1.55, 1.52, 1.38) * fl; // bright near-white tubes
             glow *= 0.93 + 0.07 * sin(dp.y * 22.0);  // two-lamp diffuser shading
             // thin frame around the lit area
             float frame = smoothstep(0.54, 0.62, abs(dp.x)) + smoothstep(0.25, 0.31, abs(dp.y));
@@ -126,7 +126,7 @@ void main() {
     }
 
     float d = length(ubo.camPos.xyz - fragWorldPos);
-    result = mix(result, vec3(0.060, 0.054, 0.028), smoothstep(6.0, 30.0, d));
+    result = mix(result, vec3(0.030, 0.027, 0.014), smoothstep(6.0, 30.0, d));
 
     outColor = vec4(pow(result, vec3(1.0 / 2.2)), 1.0);
 }

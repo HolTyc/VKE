@@ -102,7 +102,7 @@ void main() {
 
     // Distance fog into murky yellow-brown darkness sells the endless space.
     float d = length(ubo.camPos.xyz - fragWorldPos);
-    result = mix(result, vec3(0.060, 0.054, 0.028), smoothstep(6.0, 30.0, d));
+    result = mix(result, vec3(0.030, 0.027, 0.014), smoothstep(6.0, 30.0, d));
 
     outColor = vec4(pow(result, vec3(1.0 / 2.2)), 1.0);
 }

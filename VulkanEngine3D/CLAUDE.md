@@ -74,7 +74,12 @@ int main() {
 Inside `Application` you have `scene()`, `renderer()`, `window()`, `close()`,
 `setRenderMode()`, `requestRedraw()`, and `setFullscreen(bool)` /
 `isFullscreen()` for runtime fullscreen↔windowed switching (the swapchain
-rebuild is automatic).
+rebuild is automatic). `setEditorVisible(bool)` / `editorVisible()` show/hide
+the editor panels + fly cam at runtime (needs `cfg.editor = true`; `onGui()`
+keeps running either way) — the pattern for an in-game "edit mode" is
+`cfg.editor = true`, `setEditorVisible(false)` in `onStart()`, then toggle on a
+key, pausing your own camera/input controller while the editor is visible (see
+`projects/backrooms/`, F1).
 
 ## Scene & components
 

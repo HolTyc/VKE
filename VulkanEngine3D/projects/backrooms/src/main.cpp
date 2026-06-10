@@ -10,8 +10,8 @@
 //     per-panel flicker mirrored between C++ and the ceiling shader
 //   * first-person walk: mouse look, WASD, Shift to hurry, head bob, sliding
 //     collision against the maze walls; F toggles the flashlight (spot light)
-//   * Esc opens a pause menu (resume / fullscreen toggle / quit) drawn through
-//     the engine's gui-only ImGui layer (config.gui, no editor panels)
+//   * Esc opens a pause menu (resume / fullscreen toggle / quit) drawn in
+//     onGui(); the editor panels stay hidden via setEditorVisible(false)
 //   * F1 switches between play mode and edit mode: edit mode frees the cursor,
 //     pauses the player controller and shows the engine editor (Hierarchy,
 //     Inspector, RMB+WASD fly camera) over the live game — flying far away
@@ -62,8 +62,8 @@ protected:
         // Warm yellow-green ambient (the photo's overall cast); clear color
         // matches the shaders' fog color (gamma-corrected) so geometry edges
         // dissolve into it.
-        renderer().ambientLight = {0.30f, 0.285f, 0.19f};
-        renderer().clearColor   = {0.28f, 0.27f, 0.20f, 1.0f};
+        renderer().ambientLight = {0.17f, 0.16f, 0.105f};
+        renderer().clearColor   = {0.20f, 0.19f, 0.14f, 1.0f};
 
         // ---- player camera -------------------------------------------------
         auto& cam = scene().createEntity("Player");
@@ -72,7 +72,7 @@ protected:
         camComp.fov = 72.0f;
         camComp.nearClip = 0.05f;
         camComp.farClip  = 150.0f;
-        camera_ = &cam;
+        camId_ = cam.id();
 
         // ---- floor & ceiling: two big planes that slide under the player ----
         auto& floor = scene().createEntity("Floor");
@@ -82,7 +82,7 @@ protected:
         floorMr.material.shader = "carpet";
         floorMr.material.shininess = 4.0f;
         floorMr.material.specular  = 0.03f;
-        floor_ = &floor;
+        floorId_ = floor.id();
 
         auto& ceiling = scene().createEntity("Ceiling");
         ceiling.transform().position = {0.0f, bk::kWallH, 0.0f};
@@ -93,7 +93,7 @@ protected:
         ceilMr.material.shader = "ceiling";
         ceilMr.material.shininess = 16.0f;
         ceilMr.material.specular  = 0.10f;
-        ceiling_ = &ceiling;
+        ceilId_ = ceiling.id();
 
         // ---- wall/pillar pool (entities are recycled, never destroyed) ------
         wallPool_.reserve(kWallPoolSize);
@@ -104,7 +104,7 @@ protected:
             mr.material.shader = "wall";
             mr.material.shininess = 16.0f;
             mr.material.specular  = 0.08f;
-            wallPool_.push_back(&wall);
+            wallPool_.push_back(wall.id());
         }
 
         // ---- fluorescent light pool ------------------------------------------
@@ -115,7 +115,7 @@ protected:
             light.color = {1.0f, 0.97f, 0.86f}; // near-white fluorescent
             light.range = 9.5f;
             light.intensity = 0.0f;
-            lights_.push_back(&lamp);
+            lightIds_.push_back(lamp.id());
         }
 
         // ---- flashlight (spot light glued to the camera, F to toggle) --------
@@ -127,10 +127,11 @@ protected:
         torchLight.range      = 22.0f;
         torchLight.innerAngle = 11.0f;
         torchLight.outerAngle = 24.0f;
-        flashlight_ = &torch;
+        flashId_ = torch.id();
         // panel pool (7) + flashlight = 8 = the engine's per-frame light limit
 
         // ---- input & audio ---------------------------------------------------
+        setEditorVisible(false); // start in play mode; F1 brings the editor up
         glfwSetInputMode(window().handle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         if (glfwRawMouseMotionSupported())
             glfwSetInputMode(window().handle(), GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
@@ -145,23 +146,36 @@ protected:
     }
 
     void onUpdate(float dt) override {
-        // Esc toggles the pause menu (edge-triggered).
+        // F1 toggles edit mode (engine editor over the live game); Esc leaves
+        // edit mode, or toggles the pause menu in play mode. Both edge-triggered.
+        bool f1 = window().keyDown(GLFW_KEY_F1);
+        if (f1 && !prevF1_) setEditMode(!editMode_);
+        prevF1_ = f1;
+
         bool esc = window().keyDown(GLFW_KEY_ESCAPE);
-        if (esc && !prevEsc_) setMenuOpen(!menuOpen_);
+        if (esc && !prevEsc_) {
+            if (editMode_) setEditMode(false);
+            else           setMenuOpen(!menuOpen_);
+        }
         prevEsc_ = esc;
 
         bool f = window().keyDown(GLFW_KEY_F);
-        if (f && !prevF_ && !menuOpen_) flashlightOn_ = !flashlightOn_;
+        if (f && !prevF_ && !menuOpen_ && !editMode_) flashlightOn_ = !flashlightOn_;
         prevF_ = f;
 
         time_ = std::fmod(time_ + dt, kTimeWrap);
 
-        if (!menuOpen_) {
-            updateLook();
-            updateMovement(dt);
+        auto* camera = scene().find(camId_);
+        if (!camera) return; // deleted in the editor — nothing to drive
+
+        if (!menuOpen_ && !editMode_) {
+            updateLook(*camera);
+            updateMovement(*camera, dt);
         }
 
-        glm::vec3 pos = camera_->transform().position;
+        // In edit mode the fly camera moves this same entity, so the maze and
+        // lights keep regenerating around wherever the editor flies.
+        glm::vec3 pos = camera->transform().position;
         int cx = static_cast<int>(std::floor(pos.x / bk::kCell));
         int cz = static_cast<int>(std::floor(pos.z / bk::kCell));
         if (cx != lastCx_ || cz != lastCz_) {
@@ -173,12 +187,15 @@ protected:
         // the world-space shader patterns never visibly move.
         float sx = std::floor(pos.x / bk::kCell) * bk::kCell;
         float sz = std::floor(pos.z / bk::kCell) * bk::kCell;
-        floor_->transform().position   = {sx, 0.0f, sz};
-        ceiling_->transform().position = {sx, bk::kWallH, sz};
-
-        // Feed elapsed time to the ceiling shader through the material alpha
-        // (the engine has no time uniform; rendering is opaque so alpha is free).
-        ceiling_->get<vke::MeshRendererComponent>()->material.albedo.a = time_;
+        if (auto* floor = scene().find(floorId_))
+            floor->transform().position = {sx, 0.0f, sz};
+        if (auto* ceiling = scene().find(ceilId_)) {
+            ceiling->transform().position = {sx, bk::kWallH, sz};
+            // Feed elapsed time to the ceiling shader through the material alpha
+            // (the engine has no time uniform; rendering is opaque so alpha is free).
+            if (auto* mr = ceiling->get<vke::MeshRendererComponent>())
+                mr->material.albedo.a = time_;
+        }
 
         updateLights(pos);
         updateFlashlight();
@@ -200,7 +217,7 @@ protected:
         if (ImGui::Checkbox("Fullscreen", &fs)) setFullscreen(fs);
 
         ImGui::Separator();
-        ImGui::TextDisabled("WASD walk  |  Shift hurry  |  F flashlight");
+        ImGui::TextDisabled("WASD walk  |  Shift hurry  |  F flashlight  |  F1 editor");
 
         ImGui::Separator();
         if (ImGui::Button("Quit", {220, 0})) close();
@@ -211,12 +228,32 @@ protected:
 private:
     void setMenuOpen(bool open) {
         menuOpen_ = open;
+        updateCursorMode();
+    }
+
+    void setEditMode(bool edit) {
+        editMode_ = edit;
+        if (edit) menuOpen_ = false; // the editor replaces the pause menu
+        setEditorVisible(edit);
+        updateCursorMode();
+        if (!edit) {
+            // Adopt the fly camera's pose so leaving edit mode doesn't snap the
+            // view; the player controller re-pins height and zeroes roll.
+            if (auto* cam = scene().find(camId_)) {
+                yaw_   = cam->transform().rotation.y;
+                pitch_ = glm::clamp(cam->transform().rotation.x, -89.0f, 89.0f);
+            }
+        }
+    }
+
+    void updateCursorMode() {
+        bool free = menuOpen_ || editMode_;
         glfwSetInputMode(window().handle(), GLFW_CURSOR,
-                         open ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
+                         free ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
         mouseInit_ = false; // re-seed look deltas so the view doesn't jump
     }
 
-    void updateLook() {
+    void updateLook(vke::Entity& camera) {
         double mx, my;
         window().cursorPos(mx, my);
         if (!mouseInit_) { lastMx_ = mx; lastMy_ = my; mouseInit_ = true; }
@@ -224,10 +261,10 @@ private:
         pitch_ -= static_cast<float>(my - lastMy_) * kMouseSens;
         pitch_  = glm::clamp(pitch_, -89.0f, 89.0f);
         lastMx_ = mx; lastMy_ = my;
-        camera_->transform().rotation = {pitch_, yaw_, 0.0f};
+        camera.transform().rotation = {pitch_, yaw_, 0.0f};
     }
 
-    void updateMovement(float dt) {
+    void updateMovement(vke::Entity& camera, float dt) {
         float yawRad = glm::radians(yaw_);
         glm::vec2 fwd{-std::sin(yawRad), -std::cos(yawRad)}; // walking ignores pitch
         glm::vec2 right{-fwd.y, fwd.x};                      // = Transform::right() in xz
@@ -238,7 +275,7 @@ private:
         if (window().keyDown(GLFW_KEY_D)) wish += right;
         if (window().keyDown(GLFW_KEY_A)) wish -= right;
 
-        auto& t = camera_->transform();
+        auto& t = camera.transform();
         glm::vec2 p{t.position.x, t.position.z};
         bool moving = glm::dot(wish, wish) > 0.0f;
         float speed = window().keyDown(GLFW_KEY_LEFT_SHIFT) ? kRunSpeed : kWalkSpeed;
@@ -254,23 +291,31 @@ private:
     }
 
     void updateFlashlight() {
-        auto& cam = camera_->transform();
+        auto* camera = scene().find(camId_);
+        auto* torch  = scene().find(flashId_);
+        if (!camera || !torch) return;
+        auto& cam = camera->transform();
         // Carried slightly low and to the right, like held in a hand.
-        flashlight_->transform().position = cam.position + cam.right() * 0.15f -
-                                            glm::vec3(0.0f, 0.18f, 0.0f);
-        flashlight_->transform().rotation = cam.rotation;
-        flashlight_->get<vke::LightComponent>()->intensity = flashlightOn_ ? 3.2f : 0.0f;
+        torch->transform().position = cam.position + cam.right() * 0.15f -
+                                      glm::vec3(0.0f, 0.18f, 0.0f);
+        torch->transform().rotation = cam.rotation;
+        if (auto* light = torch->get<vke::LightComponent>())
+            light->intensity = flashlightOn_ ? 3.2f : 0.0f;
     }
 
     void rebuildWalls() {
         using namespace vke;
         size_t used = 0;
         auto place = [&](glm::vec3 pos, glm::vec3 scale) {
-            if (used >= wallPool_.size()) return;
-            Entity* e = wallPool_[used++];
-            e->transform().position = pos;
-            e->transform().scale = scale;
-            e->get<MeshRendererComponent>()->mesh = renderer().primitive(Primitive::Cube);
+            while (used < wallPool_.size()) {
+                Entity* e = scene().find(wallPool_[used++]);
+                if (!e) continue; // deleted in the editor — skip the slot
+                e->transform().position = pos;
+                e->transform().scale = scale;
+                if (auto* mr = e->get<MeshRendererComponent>())
+                    mr->mesh = renderer().primitive(Primitive::Cube);
+                return;
+            }
         };
 
         const float h2 = bk::kWallH * 0.5f, t = bk::kWallT;
@@ -286,7 +331,9 @@ private:
             }
         }
         for (size_t i = used; i < wallPool_.size(); ++i)
-            wallPool_[i]->get<MeshRendererComponent>()->mesh = nullptr;
+            if (auto* e = scene().find(wallPool_[i]))
+                if (auto* mr = e->get<MeshRendererComponent>())
+                    mr->mesh = nullptr;
     }
 
     void updateLights(glm::vec3 playerPos) {
@@ -308,12 +355,15 @@ private:
         std::sort(candidates.begin(), candidates.end(),
                   [](const Candidate& a, const Candidate& b) { return a.dist2 < b.dist2; });
 
-        for (size_t i = 0; i < lights_.size(); ++i) {
-            auto* light = lights_[i]->get<vke::LightComponent>();
+        for (size_t i = 0; i < lightIds_.size(); ++i) {
+            auto* lamp = scene().find(lightIds_[i]);
+            if (!lamp) continue;
+            auto* light = lamp->get<vke::LightComponent>();
+            if (!light) continue;
             if (i < candidates.size()) {
                 const auto& c = candidates[i];
-                lights_[i]->transform().position = {c.center.x, bk::kPanelY, c.center.y};
-                light->intensity = 2.2f * bk::flicker(time_, c.hash);
+                lamp->transform().position = {c.center.x, bk::kPanelY, c.center.y};
+                light->intensity = 1.5f * bk::flicker(time_, c.hash);
             } else {
                 light->intensity = 0.0f;
             }
@@ -329,13 +379,11 @@ private:
         audio_.setHumLevel(hum);
     }
 
-    // Entities are never destroyed, so raw pointers stay valid for the whole run.
-    vke::Entity* camera_  = nullptr;
-    vke::Entity* floor_   = nullptr;
-    vke::Entity* ceiling_ = nullptr;
-    vke::Entity* flashlight_ = nullptr;
-    std::vector<vke::Entity*> wallPool_;
-    std::vector<vke::Entity*> lights_;
+    // Entities are referenced by id and resolved each frame: the editor can
+    // delete anything, and scene().find() simply returns nullptr afterwards.
+    uint32_t camId_ = 0, floorId_ = 0, ceilId_ = 0, flashId_ = 0;
+    std::vector<uint32_t> wallPool_;
+    std::vector<uint32_t> lightIds_;
 
     int lastCx_ = 0, lastCz_ = 0;
     float yaw_ = 0.0f, pitch_ = 0.0f;
@@ -344,8 +392,8 @@ private:
     float bobPhase_ = 0.0f;
     float time_ = 0.0f;
 
-    bool menuOpen_ = false, flashlightOn_ = false;
-    bool prevEsc_ = false, prevF_ = false;
+    bool menuOpen_ = false, flashlightOn_ = false, editMode_ = false;
+    bool prevEsc_ = false, prevF_ = false, prevF1_ = false;
 
     bk::Audio audio_;
 };
@@ -357,8 +405,9 @@ int main() {
     config.height = 900;
     config.fullscreen = true;
     config.mode   = vke::RenderMode::Continuous;
-    config.editor = false; // no editor panels / fly-cam ...
-    config.gui    = true;  // ... but ImGui is needed for the pause menu
+    config.editor = true; // F1 edit mode needs the editor layer; onStart hides
+                          // it (setEditorVisible(false)) so the game starts in
+                          // play mode. ImGui for the pause menu comes with it.
 
     BackroomsGame game(config);
     game.run();
