@@ -4,6 +4,9 @@ A minimal, high-performance 3D engine and application framework for Linux:
 C++20, Vulkan, GLFW, GLM, Dear ImGui, tinyobjloader. Designed as a clean
 foundation — no visual scripting, no shader graphs, no timelines.
 
+This repo contains the engine (`engine/`) plus a set of games/apps built on
+top of it (`projects/`).
+
 ## Setup (Debian/Ubuntu)
 
 ```bash
@@ -19,17 +22,72 @@ sudo apt install -y build-essential cmake git pkg-config \
     glslang-tools spirv-tools libglfw3-dev libglm-dev
 ```
 
-Dear ImGui and tinyobjloader are fetched automatically by CMake (FetchContent).
+Dear ImGui, tinyobjloader and (for the Backrooms) miniaudio are fetched
+automatically by CMake (`FetchContent`) — the first configure needs network
+access.
 
 ## Build & run
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j$(nproc)
+```
+
+Every project binary lands directly in `build/`:
+
+```bash
+./build/sandbox      # minimal example scene
+./build/backrooms    # The Backrooms — Level 0
+```
+
+Use `-DCMAKE_BUILD_TYPE=Debug` (e.g. configure a separate `build-debug/`
+directory) to enable Vulkan validation layers — recommended whenever you're
+working on rendering code; validation errors print to stderr prefixed
+`[vulkan]`.
+
+```bash
+cmake -S . -B build-debug -DCMAKE_BUILD_TYPE=Debug
+cmake --build build-debug -j$(nproc)
+```
+
+`run.sh` runs the configure/build/launch sequence for the sandbox in one go.
+
+## Projects
+
+### sandbox
+
+A minimal scene (`projects/sandbox/`) demonstrating the basic engine API —
+a good starting point for new projects.
+
+```bash
 ./build/sandbox
 ```
 
-Use `-DCMAKE_BUILD_TYPE=Debug` to enable Vulkan validation layers.
+### backrooms — The Backrooms, Level 0
+
+An endless first-person walk through the Backrooms (`projects/backrooms/`),
+with procedurally generated levels, flickering lights, a flashlight and
+synthesized ambient audio. See `projects/backrooms/README.md` for details.
+
+```bash
+./build/backrooms
+```
+
+**Controls:** mouse — look · WASD — walk · Shift — hurry · F — flashlight ·
+Esc — pause menu (resume / fullscreen toggle / quit) ·
+F1 — edit mode (engine editor over the live game; F1 or Esc returns to play)
+
+## Adding a new project
+
+```
+projects/mygame/CMakeLists.txt   # just: vke_add_project(mygame)  (+ extra deps if any)
+projects/mygame/src/*.cpp        # all sources, globbed recursively
+projects/mygame/shaders/*.{vert,frag}   # optional, compiled to build/assets/shaders/mygame/
+projects/mygame/assets/          # optional, copied to build/assets/mygame/
+```
+
+Then re-run `cmake -S . -B build` once (new project directories need a
+reconfigure; new files inside an existing project do not).
 
 ## Directory structure
 
@@ -37,31 +95,35 @@ Use `-DCMAKE_BUILD_TYPE=Debug` to enable Vulkan validation layers.
 .
 ├── CMakeLists.txt           # build + GLSL→SPIR-V compilation + FetchContent deps
 ├── setup.sh                 # apt dependency installer
-├── app/
-│   └── main.cpp             # demo application (the "user code")
+├── run.sh                   # configure + build + run sandbox
+├── cmake/VkeProject.cmake   # vke_add_project() helper
 ├── assets/
-│   └── shaders/             # GLSL sources, compiled to build/assets/shaders/*.spv
+│   └── shaders/             # engine GLSL sources, compiled to build/assets/shaders/*.spv
 │       ├── basic.vert/.frag # default Blinn-Phong forward shader
-│       └── toon.vert/.frag  # example custom user shader
-└── engine/
-    ├── include/vke/         # public API
-    │   ├── vke.hpp          # single include for engine users
-    │   ├── Application.hpp  # engine entry point + game loop / event loop
-    │   ├── Window.hpp       # GLFW wrapper
-    │   ├── Renderer3D.hpp   # forward renderer facade
-    │   ├── Scene.hpp        # entity container
-    │   ├── Entity.hpp       # component holder
-    │   ├── Components.hpp   # Transform, Camera, Light, MeshRenderer, Material
-    │   ├── Mesh.hpp         # GPU mesh + OBJ loader + primitives
-    │   ├── EditorGUI.hpp    # ImGui editor layer
-    │   └── vulkan/          # backend (advanced users only)
-    │       ├── Context.hpp  # instance/device/queues/helpers
-    │       ├── Swapchain.hpp# swapchain + depth + render pass + sync
-    │       └── Pipeline.hpp # graphics pipeline from SPIR-V pair
-    └── src/                 # implementations (core/, vulkan/, scene/, render/, editor/)
+│       └── toon.vert/.frag  # example custom shader
+├── engine/
+│   ├── include/vke/         # public API
+│   │   ├── vke.hpp          # single include for engine users
+│   │   ├── Application.hpp  # engine entry point + game loop / event loop
+│   │   ├── Window.hpp       # GLFW wrapper
+│   │   ├── Renderer3D.hpp   # forward renderer facade + post-processing
+│   │   ├── Scene.hpp        # entity container
+│   │   ├── Entity.hpp       # component holder
+│   │   ├── Components.hpp   # Transform, Camera, Light, MeshRenderer, Material
+│   │   ├── Mesh.hpp         # GPU mesh + OBJ loader + primitives
+│   │   ├── EditorGUI.hpp    # ImGui editor layer
+│   │   └── vulkan/          # backend (advanced users only)
+│   │       ├── Context.hpp     # instance/device/queues/helpers
+│   │       ├── Swapchain.hpp   # swapchain + depth + render pass + sync
+│   │       ├── Pipeline.hpp    # graphics pipeline from SPIR-V pair
+│   │       └── PostProcess.hpp # offscreen target + fullscreen filter pass
+│   └── src/                 # implementations (core/, vulkan/, scene/, render/, editor/)
+└── projects/
+    ├── sandbox/             # minimal example app
+    └── backrooms/           # The Backrooms — Level 0
 ```
 
-## Quick start
+## Quick start (writing a new app)
 
 ```cpp
 #include <vke/vke.hpp>
@@ -94,32 +156,5 @@ int main() {
 }
 ```
 
-## Key concepts
-
-- **Render modes** — `RenderMode::Continuous` is a classic vsynced game loop.
-  `RenderMode::OnDemand` blocks on OS events and renders only when input
-  arrives (ideal for CAD-style viewers; idle CPU/GPU usage is ~zero). Switch at
-  runtime via `setRenderMode()` or the editor's *Rendering* menu; force a frame
-  with `requestRedraw()`.
-- **Editor** — hierarchy (create/delete entities), inspector (Transform,
-  Material, Light, Camera properties), stats overlay. Hold **RMB** and use
-  **WASD/QE** (Shift = fast) to fly the camera. Disable entirely with
-  `AppConfig::editor = false`.
-- **Custom shaders** — drop `myshader.vert`/`myshader.frag` into
-  `assets/shaders/` (same UBO/push-constant interface as `basic.*`), rebuild,
-  then:
-  ```cpp
-  renderer().registerShader("myshader", "shaders/myshader.vert.spv",
-                                        "shaders/myshader.frag.spv");
-  material.shader = "myshader";
-  ```
-- **Advanced backend access** — `renderer().context()`, `.swapchain()`,
-  `.currentCommandBuffer()` and `.pipelineLayout()` expose the raw Vulkan
-  objects for custom passes between `beginFrame()` and `endFrame()`.
-
-## Shader interface (set 0, binding 0 + push constants)
-
-All scene shaders receive a global UBO (view/proj matrices, camera position,
-ambient color, up to 8 lights) and per-draw push constants (model matrix,
-albedo, shininess/specular). See `assets/shaders/basic.vert` for the exact
-declarations — copy them into new shaders as a starting point.
+For the full engine API, conventions and gotchas (component reference, custom
+shaders, post-processing, editor controls, etc.), see `CLAUDE.md`.
