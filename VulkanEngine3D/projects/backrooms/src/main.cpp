@@ -128,7 +128,7 @@ protected:
             auto& lamp = scene().createEntity("Fluorescent");
             auto& light = lamp.add<vke::LightComponent>();
             light.type  = LightComponent::Type::Point;
-            light.color = {1.0f, 0.97f, 0.86f}; // near-white fluorescent
+            light.color = {1.0f, 0.97f, 0.1f}; // near-white fluorescent
             light.range = 9.5f;
             light.intensity = 0.0f;
             lightIds_.push_back(lamp.id());

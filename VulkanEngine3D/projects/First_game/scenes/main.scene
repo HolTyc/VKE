@@ -1,0 +1,181 @@
+{
+  "entities": [
+    {
+      "camera": {
+        "far": 500.0,
+        "fov": 60.0,
+        "near": 0.10000000149011612,
+        "primary": true
+      },
+      "name": "Main Camera",
+      "scripts": [
+        {
+          "props": {
+            "speed": -1.649999976158142
+          },
+          "type": "Rotator"
+        }
+      ],
+      "transform": {
+        "position": [
+          0.0,
+          2.0,
+          6.0
+        ],
+        "rotation": [
+          -12.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "light": {
+        "color": [
+          1.0,
+          0.9599999785423279,
+          0.8999999761581421
+        ],
+        "innerAngle": 12.0,
+        "intensity": 1.0,
+        "outerAngle": 25.0,
+        "range": 10.0,
+        "type": "directional"
+      },
+      "name": "Sun",
+      "transform": {
+        "position": [
+          0.0,
+          8.0,
+          0.0
+        ],
+        "rotation": [
+          -50.0,
+          30.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "meshRenderer": {
+        "material": {
+          "albedo": [
+            0.44999998807907104,
+            0.4699999988079071,
+            0.5,
+            1.0
+          ],
+          "shader": "basic",
+          "shininess": 16.0,
+          "specular": 0.20000000298023224
+        },
+        "mesh": "primitive:plane"
+      },
+      "name": "Ground",
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          12.0,
+          1.0,
+          12.0
+        ]
+      }
+    },
+    {
+      "meshRenderer": {
+        "material": {
+          "albedo": [
+            0.8999999761581421,
+            0.41999998688697815,
+            0.11999999731779099,
+            1.0
+          ],
+          "shader": "basic",
+          "shininess": 64.0,
+          "specular": 0.5
+        },
+        "mesh": "primitive:cube"
+      },
+      "name": "Spinning Cube",
+      "scripts": [
+        {
+          "props": {
+            "speed": 105.94999694824219
+          },
+          "type": "Rotator"
+        }
+      ],
+      "transform": {
+        "position": [
+          0.0,
+          0.75,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.5,
+          1.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "meshRenderer": {
+        "material": {
+          "albedo": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "shader": "basic",
+          "shininess": 32.0,
+          "specular": 0.5
+        },
+        "mesh": "primitive:sphere"
+      },
+      "name": "Sphere",
+      "transform": {
+        "position": [
+          0.0,
+          3.1500000953674316,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ],
+  "version": 1
+}

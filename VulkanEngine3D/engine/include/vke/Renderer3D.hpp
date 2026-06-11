@@ -64,8 +64,21 @@ public:
     // ---- resources -----------------------------------------------------
     std::shared_ptr<Mesh> primitive(Primitive p);
     // Loads a Wavefront .obj or binary glTF .glb model (chosen by extension).
-    // Paths are relative to assets/ unless absolute.
+    // Paths are relative to assets/ unless absolute. Loaded models are cached
+    // by path, so repeated loads share one GPU mesh.
     std::shared_ptr<Mesh> loadModel(const std::string& modelPath);
+
+    // Extra root for relative asset paths (a project directory). When set,
+    // relative paths are tried against it first, then fall back to the
+    // build-time asset dir. Empty string disables it.
+    void setAssetRoot(const std::string& dir) { assetRoot_ = dir; }
+    const std::string& assetRoot() const { return assetRoot_; }
+
+    // Renders the scene from this entity's camera instead of primaryCamera()
+    // (0 = off). Lets an editor fly its own camera without touching which
+    // scene camera is "primary" — i.e. without dirtying serialized data.
+    void setCameraOverride(uint32_t entityId) { cameraOverride_ = entityId; }
+    uint32_t cameraOverride() const { return cameraOverride_; }
 
     // Registers a custom shader pair (compiled SPIR-V). Paths are relative to the
     // asset directory unless absolute. Materials reference the shader by name.
@@ -106,6 +119,7 @@ public:
 private:
     void createDescriptorResources();
     void recreateSwapchain();
+    std::string resolvePath(const std::string& path) const;
 
     Window& window_;
     std::unique_ptr<VulkanContext> ctx_;
@@ -123,6 +137,10 @@ private:
 
     std::unordered_map<std::string, std::unique_ptr<Pipeline>> pipelines_;
     std::unordered_map<int, std::shared_ptr<Mesh>> primitives_;
+    std::unordered_map<std::string, std::shared_ptr<Mesh>> models_; // keyed by unresolved path
+
+    std::string assetRoot_;
+    uint32_t cameraOverride_ = 0;
 
     std::unique_ptr<PostProcess> post_;
     bool postEnabled_    = false;

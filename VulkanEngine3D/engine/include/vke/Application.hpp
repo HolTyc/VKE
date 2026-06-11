@@ -44,6 +44,8 @@ public:
     Scene&      scene() { return *scene_; }
     Renderer3D& renderer() { return *renderer_; }
     Window&     window() { return *window_; }
+    // The editor layer, or nullptr when neither config.editor nor config.gui is set.
+    EditorGUI*  editorGui() { return editor_.get(); }
 
     RenderMode renderMode() const { return config_.mode; }
     void setRenderMode(RenderMode mode);

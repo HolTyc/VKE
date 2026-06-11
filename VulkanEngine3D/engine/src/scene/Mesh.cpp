@@ -7,10 +7,17 @@
 #define CGLTF_IMPLEMENTATION
 #include <cgltf.h>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <algorithm>
+#include <climits>
+#include <cmath>
 #include <cstring>
+#include <filesystem>
 #include <map>
 #include <stdexcept>
 
@@ -55,6 +62,63 @@ void uploadDeviceLocal(VulkanContext& ctx, const void* data, VkDeviceSize size,
 
     vkDestroyBuffer(ctx.device, staging, nullptr);
     vkFreeMemory(ctx.device, stagingMemory, nullptr);
+}
+
+struct DecodedImage {
+    int width = 0;
+    int height = 0;
+    std::unique_ptr<stbi_uc, decltype(&stbi_image_free)> pixels{nullptr, stbi_image_free};
+
+    explicit operator bool() const { return pixels != nullptr && width > 0 && height > 0; }
+};
+
+DecodedImage loadBaseColorTexture(const cgltf_primitive& prim,
+                                   const std::filesystem::path& modelDir) {
+    DecodedImage image;
+    if (!prim.material) return image;
+
+    const cgltf_texture* texture =
+        prim.material->pbr_metallic_roughness.base_color_texture.texture;
+    if (!texture || !texture->image) return image;
+
+    int channels = 0;
+    if (const cgltf_buffer_view* view = texture->image->buffer_view) {
+        const stbi_uc* bytes = static_cast<const stbi_uc*>(view->data);
+        if (!bytes && view->buffer && view->buffer->data)
+            bytes = reinterpret_cast<const stbi_uc*>(
+                static_cast<const char*>(view->buffer->data) + view->offset);
+        if (!bytes || view->size == 0 || view->size > static_cast<cgltf_size>(INT_MAX))
+            return image;
+
+        image.pixels.reset(stbi_load_from_memory(bytes, static_cast<int>(view->size),
+                                                 &image.width, &image.height,
+                                                 &channels, 4));
+    } else if (texture->image->uri && texture->image->uri[0] != '\0') {
+        std::filesystem::path imagePath = modelDir / texture->image->uri;
+        image.pixels.reset(stbi_load(imagePath.string().c_str(), &image.width, &image.height,
+                                     &channels, 4));
+    }
+
+    if (!image.pixels) {
+        image.width = 0;
+        image.height = 0;
+    }
+    return image;
+}
+
+glm::vec3 sampleBaseColor(const DecodedImage& image, glm::vec2 uv, const float factor[4]) {
+    glm::vec3 color{factor[0], factor[1], factor[2]};
+    if (!image) return color;
+
+    float u = uv.x - std::floor(uv.x);
+    float v = uv.y - std::floor(uv.y);
+    int x = std::clamp(static_cast<int>(u * static_cast<float>(image.width - 1)),
+                       0, image.width - 1);
+    int y = std::clamp(static_cast<int>(v * static_cast<float>(image.height - 1)),
+                       0, image.height - 1);
+
+    const stbi_uc* pixel = image.pixels.get() + (y * image.width + x) * 4;
+    return color * glm::vec3{pixel[0] / 255.0f, pixel[1] / 255.0f, pixel[2] / 255.0f};
 }
 
 } // namespace
@@ -208,6 +272,12 @@ std::shared_ptr<Mesh> Mesh::loadGLB(VulkanContext& ctx, const std::string& path)
             }
             if (!pos) continue;
 
+            const DecodedImage baseColorTexture = loadBaseColorTexture(prim, std::filesystem::path(path).parent_path());
+            const float defaultBaseColor[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+            const float* baseColorFactor = prim.material
+                ? prim.material->pbr_metallic_roughness.base_color_factor
+                : defaultBaseColor;
+
             const uint32_t base = static_cast<uint32_t>(vertices.size());
             for (cgltf_size i = 0; i < pos->count; ++i) {
                 Vertex v{};
@@ -226,6 +296,7 @@ std::shared_ptr<Mesh> Mesh::loadGLB(VulkanContext& ctx, const std::string& path)
                     cgltf_accessor_read_float(col, i, f, 4);
                     v.color = {f[0], f[1], f[2]};
                 }
+                v.color *= sampleBaseColor(baseColorTexture, v.uv, baseColorFactor);
                 vertices.push_back(v);
             }
 

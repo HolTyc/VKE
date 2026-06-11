@@ -21,6 +21,10 @@ public:
         std::erase_if(entities_, [id](const auto& e) { return e->id() == id; });
     }
 
+    // Destroys every entity. Same contract as destroyEntity: call
+    // renderer().waitIdle() first if any entity owned a mesh drawn recently.
+    void clear() { entities_.clear(); }
+
     Entity* find(uint32_t id) {
         for (auto& e : entities_)
             if (e->id() == id) return e.get();

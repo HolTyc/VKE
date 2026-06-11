@@ -2,11 +2,14 @@
 
 #include "vke/Application.hpp"
 #include "vke/Renderer3D.hpp"
+#include "vke/Script.hpp"
+#include "vke/ScriptHost.hpp"
 #include "vke/Window.hpp"
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_vulkan.h>
+#include <imgui_stdlib.h>
 
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -86,7 +89,7 @@ void EditorGUI::buildUI(Application& app) {
 // ----------------------------------------------------------------- fly camera
 
 void EditorGUI::processInput(Application& app, float dt) {
-    Entity* cam = app.scene().primaryCamera();
+    Entity* cam = flyCamId_ ? app.scene().find(flyCamId_) : app.scene().primaryCamera();
     if (!cam) return;
 
     GLFWwindow* win = window_.handle();
@@ -133,6 +136,7 @@ void EditorGUI::drawMenuBar(Application& app) {
     if (!ImGui::BeginMainMenuBar()) return;
 
     if (ImGui::BeginMenu("File")) {
+        if (onFileMenu) onFileMenu(app);
         if (ImGui::MenuItem("Quit")) app.close();
         ImGui::EndMenu();
     }
@@ -148,6 +152,7 @@ void EditorGUI::drawMenuBar(Application& app) {
         ImGui::MenuItem("Stats", nullptr, &showStats_);
         ImGui::EndMenu();
     }
+    if (onMainMenu) onMainMenu(app);
     ImGui::EndMainMenuBar();
 }
 
@@ -194,6 +199,7 @@ void EditorGUI::drawHierarchy(Application& app) {
 
     uint32_t toDelete = 0;
     for (auto& entity : scene.entities()) {
+        if (entity->name.rfind("__", 0) == 0) continue; // editor-internal (e.g. editor camera)
         ImGui::PushID(static_cast<int>(entity->id()));
         bool isSelected = entity->id() == selected_;
         if (ImGui::Selectable(entity->name.c_str(), isSelected))
@@ -314,6 +320,78 @@ void EditorGUI::drawInspector(Application& app) {
         if (removed) entity->remove<CameraComponent>();
     }
 
+    // ---- Scripts -----------------------------------------------------------
+    if (scriptHost_) {
+        if (auto* sc = entity->get<ScriptComponent>()) {
+            int removeIdx = -1;
+            for (int i = 0; i < static_cast<int>(sc->slots.size()); ++i) {
+                ScriptSlot& slot = sc->slots[i];
+                ImGui::PushID(i);
+                const std::string label = slot.type + " (Script)";
+                bool open = ImGui::CollapsingHeader(label.c_str(), ImGuiTreeNodeFlags_DefaultOpen);
+                if (ImGui::BeginPopupContextItem("##script_ctx")) {
+                    if (ImGui::MenuItem("Remove Script")) removeIdx = i;
+                    ImGui::EndPopup();
+                }
+                if (open) {
+                    const ScriptClassDesc* desc = scriptHost_->findClass(slot.type);
+                    if (slot.instance && desc) {
+                        // Widgets write straight into the live script object.
+                        char* base = reinterpret_cast<char*>(slot.instance.get());
+                        for (size_t p = 0; p < desc->propCount; ++p) {
+                            const PropDesc& prop = desc->props[p];
+                            void* mem = base + prop.offset;
+                            switch (prop.type) {
+                                case PropType::Float:
+                                    ImGui::DragFloat(prop.name, static_cast<float*>(mem), 0.05f);
+                                    break;
+                                case PropType::Int:
+                                    ImGui::DragInt(prop.name, static_cast<int*>(mem));
+                                    break;
+                                case PropType::Bool:
+                                    ImGui::Checkbox(prop.name, static_cast<bool*>(mem));
+                                    break;
+                                case PropType::Vec3:
+                                    ImGui::DragFloat3(prop.name, static_cast<float*>(mem), 0.05f);
+                                    break;
+                                case PropType::String:
+                                    ImGui::InputText(prop.name, static_cast<std::string*>(mem));
+                                    break;
+                            }
+                        }
+                        if (desc->propCount == 0) ImGui::TextDisabled("No properties.");
+                    } else {
+                        ImGui::TextDisabled(scriptHost_->loaded()
+                                                ? "Class missing from script library."
+                                                : "Script library not loaded.");
+                        for (const auto& [name, value] : slot.props) {
+                            std::visit(
+                                [&name](const auto& v) {
+                                    using T = std::decay_t<decltype(v)>;
+                                    if constexpr (std::is_same_v<T, glm::vec3>)
+                                        ImGui::Text("%s: (%.3f, %.3f, %.3f)", name.c_str(), v.x, v.y, v.z);
+                                    else if constexpr (std::is_same_v<T, std::string>)
+                                        ImGui::Text("%s: %s", name.c_str(), v.c_str());
+                                    else if constexpr (std::is_same_v<T, bool>)
+                                        ImGui::Text("%s: %s", name.c_str(), v ? "true" : "false");
+                                    else if constexpr (std::is_same_v<T, int>)
+                                        ImGui::Text("%s: %d", name.c_str(), v);
+                                    else
+                                        ImGui::Text("%s: %.3f", name.c_str(), static_cast<double>(v));
+                                },
+                                value);
+                        }
+                    }
+                }
+                ImGui::PopID();
+            }
+            if (removeIdx >= 0) {
+                sc->slots.erase(sc->slots.begin() + removeIdx); // no GPU resources: no waitIdle
+                if (sc->slots.empty()) entity->remove<ScriptComponent>();
+            }
+        }
+    }
+
     // ---- Add component ----------------------------------------------------
     ImGui::Spacing();
     if (ImGui::Button("Add Component", {-1, 0})) ImGui::OpenPopup("##add_component");
@@ -324,6 +402,22 @@ void EditorGUI::drawInspector(Application& app) {
             entity->add<LightComponent>();
         if (!entity->has<CameraComponent>() && ImGui::MenuItem("Camera"))
             entity->add<CameraComponent>().primary = false;
+        if (scriptHost_ && scriptHost_->loaded()) {
+            const auto classes = scriptHost_->classes();
+            if (!classes.empty() && ImGui::BeginMenu("Script")) {
+                for (const ScriptClassDesc* desc : classes) {
+                    if (ImGui::MenuItem(desc->name)) {
+                        auto* sc = entity->get<ScriptComponent>();
+                        if (!sc) sc = &entity->add<ScriptComponent>();
+                        ScriptSlot slot;
+                        slot.type = desc->name;
+                        sc->slots.push_back(std::move(slot));
+                        scriptHost_->instantiateSlot(*entity, sc->slots.back());
+                    }
+                }
+                ImGui::EndMenu();
+            }
+        }
         ImGui::EndPopup();
     }
 

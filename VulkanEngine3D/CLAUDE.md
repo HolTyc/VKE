@@ -6,6 +6,11 @@ VKE is a lightweight C++20/Vulkan 3D engine for Linux. This file is for agents
 `engine/include/vke/` and almost everything goes through `vke::Application`,
 `vke::Scene` and `vke::Renderer3D`.
 
+There are two ways to make a game: a compiled C++ project in `projects/<name>/`
+(below), or a **data-driven editor project** opened in `./build/vke-editor`
+(see "The editor app" near the end) — JSON scenes + hot-reloaded C++ scripts,
+no engine rebuild needed.
+
 ## Build, run, iterate
 
 ```bash
@@ -200,6 +205,43 @@ there is no save/load; "authoring" a scene means writing `onStart()` code.
 - One light type quirk: a directional light's transform position is irrelevant
   but still shown in the editor.
 - `Entity::name` is not unique; `findByName` returns the first match.
+
+## The editor app (vke-editor)
+
+`./build/vke-editor [projectDir]` is a standalone Unity-style editor. A
+*project* is a folder anywhere on disk:
+
+```
+project.json        # { "name", "mainScene": "scenes/main.scene",
+                    #   "shaders"?: [{name, vert, frag}], "postProcess"?: {vert, frag, strength, params} }
+scenes/*.scene      # JSON scenes (vke::SceneSerializer format)
+scripts/*.cpp       # hot-reloaded C++ scripts (compiled to .vke/scripts.so)
+assets/             # models etc.; relative paths resolve here first (Renderer3D::setAssetRoot)
+.vke/               # build artifacts, gitignored
+```
+
+- File > New/Open Project; Ctrl+S saves the scene; the editor flies its own
+  `__EditorCamera` (excluded from saves, names starting `__` are hidden in the
+  Hierarchy).
+- **Play/Stop**: Play serializes the scene to an in-memory snapshot, hides the
+  panels, enables the project post-process and runs scripts; Stop (or Esc)
+  restores the snapshot exactly. Scripts never run in Edit mode and post-process
+  is Play-only.
+- **Scripts**: subclass `vke::Script` (include `<vke/Script.hpp>`, key codes in
+  `<vke/Keys.hpp>`), expose inspector/serialized members with
+  `VKE_SCRIPT(Class, VKE_PROPERTY(member)...)` (float/int/bool/vec3/string).
+  "Reload Scripts" (Ctrl+R) recompiles `scripts/*.cpp` with g++, dlopens the
+  result and re-instantiates with property values preserved; compile errors go
+  to the Console panel. Multiple scripts per entity live in one
+  `vke::ScriptComponent` (vector of slots).
+- Mechanics: scripts resolve engine symbols from the editor binary
+  (`ENABLE_EXPORTS` + whole-archive in `editor/CMakeLists.txt`); mesh
+  serialization uses `Mesh::source` ("primitive:cube" / "model:path");
+  `renderer().setCameraOverride(id)` is how the editor camera renders without
+  touching scene data.
+- Headless CI check: `./build/vke-editor --compile-test <projectDir>` compiles
+  + dlopens the project's scripts and prints `Class: prop(type)...` (exit 1 on
+  compile/load failure) — no window/Vulkan needed.
 
 ## Extension points (in rough order of effort)
 

@@ -26,7 +26,11 @@ FetchContent_Declare(tinyobjloader
     GIT_TAG        v2.0.0rc13
     GIT_SHALLOW    TRUE)
 
-FetchContent_MakeAvailable(imgui tinyobjloader)
+FetchContent_Declare(json
+    URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE)
+
+FetchContent_MakeAvailable(imgui tinyobjloader json)
 
 # cgltf (single header) for binary glTF (.glb) models. Download only — the
 # implementation is compiled inside engine/src/scene/Mesh.cpp.
@@ -46,10 +50,12 @@ add_library(imgui_vulkan STATIC
     ${imgui_SOURCE_DIR}/imgui_draw.cpp
     ${imgui_SOURCE_DIR}/imgui_tables.cpp
     ${imgui_SOURCE_DIR}/imgui_widgets.cpp
+    ${imgui_SOURCE_DIR}/misc/cpp/imgui_stdlib.cpp
     ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
     ${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.cpp)
 target_include_directories(imgui_vulkan PUBLIC
     ${imgui_SOURCE_DIR}
+    ${imgui_SOURCE_DIR}/misc/cpp
     ${imgui_SOURCE_DIR}/backends)
 target_link_libraries(imgui_vulkan PUBLIC Vulkan::Vulkan glfw)
 
@@ -80,7 +86,9 @@ file(GLOB_RECURSE VKE_SOURCES CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/engine/src/*
 add_library(vke STATIC ${VKE_SOURCES})
 target_include_directories(vke PUBLIC ${CMAKE_SOURCE_DIR}/engine/include)
 target_include_directories(vke PRIVATE ${cgltf_SOURCE_DIR})
+target_include_directories(vke PRIVATE ${tinyobjloader_SOURCE_DIR}/examples/viewer) # stb_image.h for CPU-baked GLB base colors
 target_link_libraries(vke PUBLIC Vulkan::Vulkan glfw imgui_vulkan tinyobjloader)
+target_link_libraries(vke PRIVATE nlohmann_json::nlohmann_json) # json stays out of public headers
 if(TARGET glm::glm)
     target_link_libraries(vke PUBLIC glm::glm)
 endif()
@@ -88,6 +96,19 @@ target_compile_definitions(vke PUBLIC
     GLM_FORCE_RADIANS
     GLM_FORCE_DEPTH_ZERO_TO_ONE
     VKE_ASSET_DIR="${CMAKE_BINARY_DIR}/assets")
+
+# ScriptHost shells out to g++ to hot-compile project scripts; it needs the
+# engine (and glm, when not on the default include path) header locations.
+set(VKE_GLM_INC "")
+if(TARGET glm::glm)
+    get_target_property(VKE_GLM_INC glm::glm INTERFACE_INCLUDE_DIRECTORIES)
+    if(NOT VKE_GLM_INC)
+        set(VKE_GLM_INC "")
+    endif()
+endif()
+target_compile_definitions(vke PRIVATE
+    VKE_ENGINE_INCLUDE_DIR="${CMAKE_SOURCE_DIR}/engine/include"
+    VKE_GLM_INCLUDE_DIR="${VKE_GLM_INC}")
 add_dependencies(vke vke_shaders)
 
 # ------------------------------------------------------------- game projects
@@ -100,3 +121,6 @@ foreach(PROJECT_LIST ${VKE_PROJECT_LISTS})
     get_filename_component(PROJECT_DIR ${PROJECT_LIST} DIRECTORY)
     add_subdirectory(${PROJECT_DIR})
 endforeach()
+
+# ------------------------------------------------------------------ editor
+add_subdirectory(editor)

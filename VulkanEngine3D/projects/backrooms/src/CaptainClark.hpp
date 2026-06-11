@@ -31,8 +31,12 @@
 
 #include <glm/glm.hpp>
 
+#include <algorithm>
 #include <cmath>
 #include <cstdint>
+#include <memory>
+#include <string>
+#include <vector>
 
 namespace bk {
 
@@ -45,6 +49,12 @@ constexpr float kClarkLoseSight   = 2.5f;  // seconds without LOS before giving 
 constexpr float kClarkCatchDist   = 0.85f;
 constexpr float kClarkRespawnDist = 48.0f; // fell hopelessly behind: relocate
 constexpr float kClarkScareTime   = 1.4f;  // seconds frozen in the player's face
+constexpr float kClarkIdleVolume  = 15.7f;
+constexpr float kClarkChaseVolume = 10.8f;
+constexpr float kClarkScareVolume = 3.0f;
+constexpr float kClarkVisualScale = 2.0f;
+constexpr float kClarkModelYawOffset = 180.0f; // model faces opposite its movement vector
+constexpr float kClarkCatchLunge = 0.35f;
 
 struct CaptainClarkComponent : vke::Component {
     enum class State { Wander, Chase, Jumpscare };
@@ -53,6 +63,11 @@ struct CaptainClarkComponent : vke::Component {
     State     soundState = State::Wander; // which clip is currently playing
     glm::vec2 waypoint{0.0f};      // wander target (cell centre, x/z)
     glm::vec2 dir{0.0f, -1.0f};    // last movement direction (x/z)
+    glm::vec2 catchAnchor{0.0f};   // start of the catch lunge (x/z)
+    glm::vec2 catchDir{0.0f, -1.0f};
+    std::vector<std::shared_ptr<vke::Mesh>> walkFrames;
+    std::vector<std::shared_ptr<vke::Mesh>> runFrames;
+    std::vector<std::shared_ptr<vke::Mesh>> catchFrames;
     float     yaw        = 0.0f;   // smoothed facing, degrees
     float     animPhase  = 0.0f;   // drives the shamble bob/sway
     float     lostTimer  = 0.0f;   // seconds since the player was last seen
@@ -142,24 +157,51 @@ inline void scatterClark(CaptainClarkComponent& c, vke::Transform& t, glm::vec2 
         p = collide(p, kClarkRadius); // settle out of any wall
         if (attempt < 11 && hasLineOfSight(player, p)) continue; // prefer hidden
         t.position = {p.x, 0.0f, p.y};
+        t.scale = glm::vec3{kClarkVisualScale};
         c.state = CaptainClarkComponent::State::Wander;
         c.waypoint = p;
         return;
     }
 }
 
+inline std::vector<std::shared_ptr<vke::Mesh>> loadClarkFrames(vke::Renderer3D& renderer,
+                                                               const std::string& clip,
+                                                               int count) {
+    std::vector<std::shared_ptr<vke::Mesh>> frames;
+    frames.reserve(static_cast<std::size_t>(count));
+    for (int i = 0; i < count; ++i) {
+        std::string index = i < 10 ? "0" + std::to_string(i) : std::to_string(i);
+        frames.push_back(renderer.loadModel("backrooms/models/captain_clark_baked/" +
+                                            clip + "_" + index + ".glb"));
+    }
+    return frames;
+}
+
+inline void setClarkFrame(vke::MeshRendererComponent& mr,
+                          const std::vector<std::shared_ptr<vke::Mesh>>& frames,
+                          float phase) {
+    if (frames.empty()) return;
+    float wrapped = std::fmod(phase, 6.2831853f);
+    if (wrapped < 0.0f) wrapped += 6.2831853f;
+    std::size_t frame = static_cast<std::size_t>(wrapped / 6.2831853f * frames.size()) % frames.size();
+    mr.mesh = frames[frame];
+}
+
 // Builds the monster entity: Transform + MeshRenderer (rigged GLB, baked at
 // bind pose — skeletal animation is stubbed in the engine loader) + the logic
 // component + a positional AudioSource carrying the three state clips. The
-// engine has no texture sampling yet, so the skin is the material albedo.
+// GLB loader bakes the embedded base-color texture into vertex colors, so
+// the material tint stays neutral.
 inline uint32_t spawnCaptainClark(vke::Scene& scene, vke::Renderer3D& renderer,
                                   glm::vec3 position) {
     auto& clark = scene.createEntity("Captain Clark");
     clark.transform().position = position;
+    clark.transform().scale = glm::vec3{kClarkVisualScale};
+    clark.transform().rotation = {0.0f, kClarkModelYawOffset, 0.0f};
 
     auto& mr = clark.add<vke::MeshRendererComponent>();
     mr.mesh = renderer.loadModel("backrooms/models/captain_clark_rigged_fixed.glb");
-    mr.material.albedo    = {0.16f, 0.15f, 0.17f, 1.0f}; // wet-dark silhouette
+    mr.material.albedo    = {1.0f, 1.0f, 1.0f, 1.0f}; // preserve baked texture colors
     mr.material.shininess = 8.0f;
     mr.material.specular  = 0.25f; // faint fluorescent sheen so he reads in the dark
     mr.material.shader    = "basic";
@@ -169,9 +211,13 @@ inline uint32_t spawnCaptainClark(vke::Scene& scene, vke::Renderer3D& renderer,
     audio.load("chase",     "backrooms/sound/chase.mp3");
     audio.load("jumpscare", "backrooms/sound/jumpscare.mp3");
     audio.setPosition(position);
-    audio.play("idle", true); // wandering from frame one
+    audio.play("idle", true, kClarkIdleVolume); // wandering from frame one
 
     auto& cc = clark.add<CaptainClarkComponent>();
+    cc.walkFrames = loadClarkFrames(renderer, "walk", 8);
+    cc.runFrames = loadClarkFrames(renderer, "run", 8);
+    cc.catchFrames = loadClarkFrames(renderer, "catch", 6);
+    if (!cc.walkFrames.empty()) mr.mesh = cc.walkFrames.front();
     cc.rng ^= clark.id() * 0x45d9f3bu; // de-sync multiple Clarks
     cc.waypoint = {position.x, position.z};
     return clark.id();
@@ -196,6 +242,7 @@ inline ClarkStatus updateCaptainClarks(vke::Scene& scene, glm::vec3 playerPos, f
 
         using State = CaptainClarkComponent::State;
 
+        auto* mr = e.get<vke::MeshRendererComponent>();
         auto& audio = *e.get<AudioSourceComponent>();
         audio.setPosition(t.position);
 
@@ -205,18 +252,38 @@ inline ClarkStatus updateCaptainClarks(vke::Scene& scene, glm::vec3 playerPos, f
             c.soundState = c.state;
             audio.stopAll();
             switch (c.state) {
-            case State::Wander:    audio.play("idle", true);             break;
-            case State::Chase:     audio.play("chase", true);            break;
-            case State::Jumpscare: audio.play("jumpscare", false, 1.0f); break; // max volume
+            case State::Wander:    audio.play("idle", true, kClarkIdleVolume);       break;
+            case State::Chase:     audio.play("chase", true, kClarkChaseVolume);     break;
+            case State::Jumpscare: audio.play("jumpscare", false, kClarkScareVolume); break;
             }
         };
 
         if (c.state == State::Jumpscare) {
-            // Locked in the player's face, screaming; no movement until done.
+            // Catch animation: a short forward lunge with an agitated full-body snap.
             c.scareTimer -= dt;
+            c.animPhase += dt * 16.0f;
+
+            float progress = 1.0f - std::clamp(c.scareTimer / kClarkScareTime, 0.0f, 1.0f);
+            if (mr && !c.catchFrames.empty()) {
+                std::size_t frame = std::min(static_cast<std::size_t>(progress * c.catchFrames.size()),
+                                             c.catchFrames.size() - 1);
+                mr->mesh = c.catchFrames[frame];
+            }
+            float reach = std::sin(progress * 3.14159265f);
+            float twitch = std::sin(c.animPhase);
+            glm::vec2 catchPos = c.catchAnchor + c.catchDir * (reach * kClarkCatchLunge);
+            t.position = {catchPos.x, 0.12f + std::abs(twitch) * 0.10f + reach * 0.20f,
+                          catchPos.y};
+            toPlayer = player - catchPos;
             c.yaw = glm::degrees(std::atan2(-toPlayer.x, -toPlayer.y));
-            t.rotation = {0.0f, c.yaw, 0.0f};
+            t.rotation = {-18.0f * reach + twitch * 2.0f,
+                          c.yaw + kClarkModelYawOffset,
+                          twitch * 5.0f};
+            t.scale = {kClarkVisualScale * (1.0f + reach * 0.06f),
+                       kClarkVisualScale * (1.0f - reach * 0.03f),
+                       kClarkVisualScale * (1.0f + reach * 0.06f)};
             if (c.scareTimer <= 0.0f) {
+                t.scale = glm::vec3{kClarkVisualScale};
                 scatterClark(c, t, player); // melts back into the maze (-> Wander)
                 syncSound();
             }
@@ -233,6 +300,9 @@ inline ClarkStatus updateCaptainClarks(vke::Scene& scene, glm::vec3 playerPos, f
             status.caught = true; // game layer: VHS glitch burst + camera shake
             c.state = State::Jumpscare;
             c.scareTimer = kClarkScareTime;
+            c.animPhase = 0.0f;
+            c.catchAnchor = pos;
+            c.catchDir = dist > 1e-4f ? toPlayer / dist : c.dir;
             syncSound();
             return;
         }
@@ -289,11 +359,20 @@ inline ClarkStatus updateCaptainClarks(vke::Scene& scene, glm::vec3 playerPos, f
         float delta = std::remainder(targetYaw - c.yaw, 360.0f);
         c.yaw += delta * std::min(dt * 8.0f, 1.0f);
 
-        c.animPhase += movedLen * 3.2f;
-        float sway = std::sin(c.animPhase) * 4.0f;          // roll, degrees
-        float bob  = std::abs(std::sin(c.animPhase)) * 0.05f;
+        bool running = c.state == State::Chase;
+        c.animPhase += movedLen * (running ? 4.6f : 3.2f);
+        if (mr) setClarkFrame(*mr, running ? c.runFrames : c.walkFrames, c.animPhase);
+        float stride = std::sin(c.animPhase);
+        float step = std::abs(stride);
+        float sway = stride * (running ? 9.0f : 4.0f);          // roll, degrees
+        float bob = step * (running ? 0.11f : 0.05f);
+        float pitch = running ? -7.0f + std::cos(c.animPhase) * 3.0f
+                              : std::cos(c.animPhase) * 1.5f;
         t.position.y = bob;
-        t.rotation = {0.0f, c.yaw, sway};
+        t.scale = {kClarkVisualScale * (1.0f + step * (running ? 0.035f : 0.015f)),
+                   kClarkVisualScale * (1.0f - step * (running ? 0.025f : 0.010f)),
+                   kClarkVisualScale * (1.0f + step * (running ? 0.035f : 0.015f))};
+        t.rotation = {pitch, c.yaw + kClarkModelYawOffset, sway};
     });
 
     return status;

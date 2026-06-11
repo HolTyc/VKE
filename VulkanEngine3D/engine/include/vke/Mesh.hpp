@@ -40,6 +40,11 @@ public:
     uint32_t indexCount() const { return indexCount_; }
     uint32_t vertexCount() const { return vertexCount_; }
 
+    // Where this mesh came from, for scene serialization: "primitive:cube",
+    // "primitive:sphere", "primitive:plane" or "model:<path as passed to
+    // loadModel>". Set by Renderer3D; empty for meshes built by hand.
+    std::string source;
+
     // Loads a Wavefront .obj file (triangulated; normals computed if missing).
     static std::shared_ptr<Mesh> loadOBJ(VulkanContext& ctx, const std::string& path);
 

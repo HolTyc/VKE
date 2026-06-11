@@ -38,6 +38,7 @@ Every project binary lands directly in `build/`:
 ```bash
 ./build/sandbox      # minimal example scene
 ./build/backrooms    # The Backrooms — Level 0
+./build/vke-editor   # project editor with hot-reloaded C++ scripting
 ```
 
 Use `-DCMAKE_BUILD_TYPE=Debug` (e.g. configure a separate `build-debug/`
@@ -51,6 +52,15 @@ cmake --build build-debug -j$(nproc)
 ```
 
 `run.sh` runs the configure/build/launch sequence for the sandbox in one go.
+
+## Scripting
+
+VKE editor projects support hot-reloaded C++ scripts in each project's
+`scripts/` folder. Scripts attach to entities, expose Inspector properties, read
+input, and run in Play mode.
+
+See [docs/Scripting.md](docs/Scripting.md) for the full scripting guide with
+examples.
 
 ## Projects
 

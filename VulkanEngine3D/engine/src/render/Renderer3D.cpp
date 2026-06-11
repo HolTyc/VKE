@@ -6,14 +6,18 @@
 
 #include <cmath>
 #include <cstring>
+#include <filesystem>
 
 namespace vke {
 
-namespace {
-std::string resolveAssetPath(const std::string& path) {
-    return path.empty() || path.front() == '/' ? path : assetPath(path);
+std::string Renderer3D::resolvePath(const std::string& path) const {
+    if (path.empty() || path.front() == '/') return path;
+    if (!assetRoot_.empty()) {
+        std::filesystem::path inRoot = std::filesystem::path(assetRoot_) / path;
+        if (std::filesystem::exists(inRoot)) return inRoot.string();
+    }
+    return assetPath(path);
 }
-} // namespace
 
 Renderer3D::Renderer3D(Window& window) : window_(window) {
     ctx_ = std::make_unique<VulkanContext>(window_);
@@ -51,6 +55,7 @@ Renderer3D::~Renderer3D() {
     waitIdle();
     post_.reset();
     primitives_.clear();
+    models_.clear();
     pipelines_.clear();
     vkDestroyPipelineLayout(ctx_->device, pipelineLayout_, nullptr);
     for (size_t i = 0; i < uboBuffers_.size(); ++i) {
@@ -178,7 +183,9 @@ void Renderer3D::renderScene(Scene& scene) {
     float fov = 60.0f, nearClip = 0.1f, farClip = 500.0f;
     glm::vec3 camPos{4.0f, 4.0f, 8.0f};
 
-    if (Entity* camEntity = scene.primaryCamera()) {
+    Entity* overrideCam = cameraOverride_ ? scene.find(cameraOverride_) : nullptr;
+    if (overrideCam && !overrideCam->has<CameraComponent>()) overrideCam = nullptr;
+    if (Entity* camEntity = overrideCam ? overrideCam : scene.primaryCamera()) {
         const auto& t = camEntity->transform();
         const auto* cam = camEntity->get<CameraComponent>();
         ubo.view = glm::inverse(t.matrix());
@@ -305,19 +312,26 @@ std::shared_ptr<Mesh> Renderer3D::primitive(Primitive p) {
 
     std::shared_ptr<Mesh> mesh;
     switch (p) {
-        case Primitive::Cube:   mesh = Mesh::createCube(*ctx_); break;
-        case Primitive::Sphere: mesh = Mesh::createSphere(*ctx_); break;
-        case Primitive::Plane:  mesh = Mesh::createPlane(*ctx_); break;
+        case Primitive::Cube:   mesh = Mesh::createCube(*ctx_);   mesh->source = "primitive:cube";   break;
+        case Primitive::Sphere: mesh = Mesh::createSphere(*ctx_); mesh->source = "primitive:sphere"; break;
+        case Primitive::Plane:  mesh = Mesh::createPlane(*ctx_);  mesh->source = "primitive:plane";  break;
     }
     primitives_[static_cast<int>(p)] = mesh;
     return mesh;
 }
 
 std::shared_ptr<Mesh> Renderer3D::loadModel(const std::string& modelPath) {
-    const std::string resolved = resolveAssetPath(modelPath);
+    if (auto it = models_.find(modelPath); it != models_.end()) return it->second;
+
+    const std::string resolved = resolvePath(modelPath);
+    std::shared_ptr<Mesh> mesh;
     if (resolved.size() >= 4 && resolved.compare(resolved.size() - 4, 4, ".glb") == 0)
-        return Mesh::loadGLB(*ctx_, resolved);
-    return Mesh::loadOBJ(*ctx_, resolved);
+        mesh = Mesh::loadGLB(*ctx_, resolved);
+    else
+        mesh = Mesh::loadOBJ(*ctx_, resolved);
+    mesh->source = "model:" + modelPath;
+    models_[modelPath] = mesh;
+    return mesh;
 }
 
 void Renderer3D::registerShader(const std::string& name,
@@ -325,8 +339,8 @@ void Renderer3D::registerShader(const std::string& name,
                                 const std::string& fragSpvPath) {
     pipelines_[name] = std::make_unique<Pipeline>(*ctx_, swapchain_->renderPass(),
                                                   pipelineLayout_,
-                                                  resolveAssetPath(vertSpvPath),
-                                                  resolveAssetPath(fragSpvPath));
+                                                  resolvePath(vertSpvPath),
+                                                  resolvePath(fragSpvPath));
 }
 
 void Renderer3D::setPostProcessShader(const std::string& vertSpvPath,
@@ -335,8 +349,8 @@ void Renderer3D::setPostProcessShader(const std::string& vertSpvPath,
     post_ = std::make_unique<PostProcess>(*ctx_, swapchain_->renderPass(),
                                           swapchain_->imageFormat(),
                                           swapchain_->extent(),
-                                          resolveAssetPath(vertSpvPath),
-                                          resolveAssetPath(fragSpvPath));
+                                          resolvePath(vertSpvPath),
+                                          resolvePath(fragSpvPath));
     postEnabled_ = true;
 }
 
