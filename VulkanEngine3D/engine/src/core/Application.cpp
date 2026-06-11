@@ -59,6 +59,9 @@ void Application::run() {
                 onGui();
             }
             renderer_->renderScene(*scene_);
+            // Composite the offscreen scene before ImGui so UI stays unfiltered
+            // (no-op unless a post-process shader is enabled).
+            renderer_->applyPostProcess();
             if (editor_) editor_->render(cmd);
             renderer_->endFrame();
         }

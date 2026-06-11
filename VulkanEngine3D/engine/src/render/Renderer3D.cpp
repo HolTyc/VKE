@@ -49,6 +49,7 @@ Renderer3D::Renderer3D(Window& window) : window_(window) {
 
 Renderer3D::~Renderer3D() {
     waitIdle();
+    post_.reset();
     primitives_.clear();
     pipelines_.clear();
     vkDestroyPipelineLayout(ctx_->device, pipelineLayout_, nullptr);
@@ -140,10 +141,15 @@ VkCommandBuffer Renderer3D::beginFrame() {
     clears[0].color = {{clearColor.r, clearColor.g, clearColor.b, clearColor.a}};
     clears[1].depthStencil = {1.0f, 0};
 
+    // With post-processing on, the scene pass targets the offscreen texture;
+    // applyPostProcess() later composites it into the swapchain pass.
+    postPassActive_ = postEnabled_ && post_ != nullptr;
+
     VkRenderPassBeginInfo rpInfo{};
     rpInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
-    rpInfo.renderPass = swapchain_->renderPass();
-    rpInfo.framebuffer = swapchain_->framebuffer(imageIndex_);
+    rpInfo.renderPass = postPassActive_ ? post_->scenePass() : swapchain_->renderPass();
+    rpInfo.framebuffer = postPassActive_ ? post_->framebuffer(frameIndex_)
+                                         : swapchain_->framebuffer(imageIndex_);
     rpInfo.renderArea = {{0, 0}, swapchain_->extent()};
     rpInfo.clearValueCount = 2;
     rpInfo.pClearValues = clears;
@@ -231,8 +237,37 @@ void Renderer3D::renderScene(Scene& scene) {
     });
 }
 
+void Renderer3D::applyPostProcess() {
+    if (!frameStarted_ || !postPassActive_) return;
+    postPassActive_ = false;
+
+    VkCommandBuffer cmd = commandBuffers_[frameIndex_];
+    vkCmdEndRenderPass(cmd); // offscreen scene pass; color is now sampleable
+
+    VkClearValue clears[2];
+    clears[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}}; // fully covered by the quad
+    clears[1].depthStencil = {1.0f, 0};
+
+    VkRenderPassBeginInfo rpInfo{};
+    rpInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+    rpInfo.renderPass = swapchain_->renderPass();
+    rpInfo.framebuffer = swapchain_->framebuffer(imageIndex_);
+    rpInfo.renderArea = {{0, 0}, swapchain_->extent()};
+    rpInfo.clearValueCount = 2;
+    rpInfo.pClearValues = clears;
+    vkCmdBeginRenderPass(cmd, &rpInfo, VK_SUBPASS_CONTENTS_INLINE);
+
+    PostFXPush push{};
+    push.timeRes = {postProcessTime, postProcessStrength,
+                    static_cast<float>(swapchain_->extent().width),
+                    static_cast<float>(swapchain_->extent().height)};
+    push.params = postProcessParams;
+    post_->draw(cmd, frameIndex_, push);
+}
+
 void Renderer3D::endFrame() {
     if (!frameStarted_) return;
+    applyPostProcess(); // safety net for apps driving the renderer manually
     VkCommandBuffer cmd = commandBuffers_[frameIndex_];
 
     vkCmdEndRenderPass(cmd);
@@ -259,6 +294,7 @@ void Renderer3D::recreateSwapchain() {
     }
     ctx_->waitIdle();
     swapchain_->recreate(extent);
+    if (post_) post_->resize(swapchain_->extent());
 }
 
 // ----------------------------------------------------------------- resources
@@ -277,8 +313,11 @@ std::shared_ptr<Mesh> Renderer3D::primitive(Primitive p) {
     return mesh;
 }
 
-std::shared_ptr<Mesh> Renderer3D::loadModel(const std::string& objPath) {
-    return Mesh::loadOBJ(*ctx_, resolveAssetPath(objPath));
+std::shared_ptr<Mesh> Renderer3D::loadModel(const std::string& modelPath) {
+    const std::string resolved = resolveAssetPath(modelPath);
+    if (resolved.size() >= 4 && resolved.compare(resolved.size() - 4, 4, ".glb") == 0)
+        return Mesh::loadGLB(*ctx_, resolved);
+    return Mesh::loadOBJ(*ctx_, resolved);
 }
 
 void Renderer3D::registerShader(const std::string& name,
@@ -288,6 +327,17 @@ void Renderer3D::registerShader(const std::string& name,
                                                   pipelineLayout_,
                                                   resolveAssetPath(vertSpvPath),
                                                   resolveAssetPath(fragSpvPath));
+}
+
+void Renderer3D::setPostProcessShader(const std::string& vertSpvPath,
+                                      const std::string& fragSpvPath) {
+    waitIdle(); // a previous post pipeline/target may still be in flight
+    post_ = std::make_unique<PostProcess>(*ctx_, swapchain_->renderPass(),
+                                          swapchain_->imageFormat(),
+                                          swapchain_->extent(),
+                                          resolveAssetPath(vertSpvPath),
+                                          resolveAssetPath(fragSpvPath));
+    postEnabled_ = true;
 }
 
 std::vector<std::string> Renderer3D::shaderNames() const {

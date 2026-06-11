@@ -5,6 +5,7 @@
 #include "Scene.hpp"
 #include "vulkan/Context.hpp"
 #include "vulkan/Pipeline.hpp"
+#include "vulkan/PostProcess.hpp"
 #include "vulkan/Swapchain.hpp"
 
 #include <glm/glm.hpp>
@@ -62,7 +63,9 @@ public:
 
     // ---- resources -----------------------------------------------------
     std::shared_ptr<Mesh> primitive(Primitive p);
-    std::shared_ptr<Mesh> loadModel(const std::string& objPath); // relative to assets/ or absolute
+    // Loads a Wavefront .obj or binary glTF .glb model (chosen by extension).
+    // Paths are relative to assets/ unless absolute.
+    std::shared_ptr<Mesh> loadModel(const std::string& modelPath);
 
     // Registers a custom shader pair (compiled SPIR-V). Paths are relative to the
     // asset directory unless absolute. Materials reference the shader by name.
@@ -70,6 +73,26 @@ public:
                         const std::string& vertSpvPath,
                         const std::string& fragSpvPath);
     std::vector<std::string> shaderNames() const;
+
+    // ---- post-processing -------------------------------------------------
+    // Registers a fullscreen post-process shader pair (compiled SPIR-V, paths
+    // resolved like registerShader) and enables it. While enabled the scene
+    // renders into an offscreen texture which the shader composites onto the
+    // swapchain; ImGui always draws on top, unfiltered.
+    void setPostProcessShader(const std::string& vertSpvPath,
+                              const std::string& fragSpvPath);
+    void setPostProcessEnabled(bool enabled) { postEnabled_ = enabled; }
+    bool postProcessEnabled() const { return postEnabled_ && post_ != nullptr; }
+
+    // Ends the offscreen scene pass and draws the fullscreen quad into the
+    // swapchain pass. Application::run calls this between renderScene and the
+    // ImGui render; endFrame also invokes it as a safety net. No-op while
+    // post-processing is disabled.
+    void applyPostProcess();
+
+    float postProcessTime     = 0.0f;  // seconds; drive from the game loop
+    float postProcessStrength = 1.0f;  // 0 = clean image, 1 = full effect
+    glm::vec4 postProcessParams{0.0f}; // extra shader-defined tuning values
 
     glm::vec4 clearColor{0.045f, 0.05f, 0.07f, 1.0f};
     glm::vec3 ambientLight{0.06f, 0.06f, 0.08f};
@@ -100,6 +123,10 @@ private:
 
     std::unordered_map<std::string, std::unique_ptr<Pipeline>> pipelines_;
     std::unordered_map<int, std::shared_ptr<Mesh>> primitives_;
+
+    std::unique_ptr<PostProcess> post_;
+    bool postEnabled_    = false;
+    bool postPassActive_ = false; // this frame's scene pass renders offscreen
 
     uint32_t frameIndex_ = 0;
     uint32_t imageIndex_ = 0;

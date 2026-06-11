@@ -43,6 +43,11 @@ public:
     // Loads a Wavefront .obj file (triangulated; normals computed if missing).
     static std::shared_ptr<Mesh> loadOBJ(VulkanContext& ctx, const std::string& path);
 
+    // Loads a binary glTF (.glb) file: every mesh primitive of every node is
+    // baked into one static Mesh. Skins/joints/animations are intentionally
+    // ignored (skeletal stub) — rigged models come in at bind pose.
+    static std::shared_ptr<Mesh> loadGLB(VulkanContext& ctx, const std::string& path);
+
     // Built-in primitives (unit-sized, centered at the origin).
     static std::shared_ptr<Mesh> createCube(VulkanContext& ctx);
     static std::shared_ptr<Mesh> createPlane(VulkanContext& ctx);

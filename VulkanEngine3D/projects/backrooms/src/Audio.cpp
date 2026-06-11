@@ -1,11 +1,7 @@
 #include "Audio.hpp"
 
-#define MINIAUDIO_IMPLEMENTATION
-#define MA_NO_DECODING
-#define MA_NO_ENCODING
-#define MA_NO_RESOURCE_MANAGER
-#define MA_NO_NODE_GRAPH
-#define MA_NO_ENGINE
+// The miniaudio implementation lives in AudioSystem.cpp (full build with mp3
+// decoding); this TU only needs the declarations for the raw device API.
 #include <miniaudio.h>
 
 #include <atomic>

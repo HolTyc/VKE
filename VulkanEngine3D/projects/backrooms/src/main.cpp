@@ -20,8 +20,19 @@
 //     editor can't leave dangling pointers.
 //   * synthesized ambience: fluorescent hum that follows the nearest fixture,
 //     a low rumble, and distant thumps (Audio.hpp, miniaudio)
+//   * positional sample playback (AudioSystem.hpp, ma_engine + mp3 decoding):
+//     the listener rides the camera, AudioSourceComponents ride their entities
+//   * Captain Clark (CaptainClark.hpp): a monster (rigged GLB, bind pose) that
+//     wanders the maze grid groaning idle.mp3 and chases on line of sight to
+//     chase.mp3; getting close scrambles the VHS signal, getting caught
+//     triggers the jumpscare — jumpscare.mp3 at full volume, a camera shake
+//     and a glitch burst — before he melts back into Level 0
+//   * the whole frame runs through a VHS post-process filter (vhs.frag via
+//     the engine's offscreen post-processing pass); V toggles it
 
 #include "Audio.hpp"
+#include "AudioSystem.hpp"
+#include "CaptainClark.hpp"
 #include "LevelGen.hpp"
 
 #include <vke/vke.hpp>
@@ -58,6 +69,11 @@ protected:
         renderer().registerShader("wall",    "shaders/backrooms/level.vert.spv", "shaders/backrooms/wall.frag.spv");
         renderer().registerShader("carpet",  "shaders/backrooms/level.vert.spv", "shaders/backrooms/carpet.frag.spv");
         renderer().registerShader("ceiling", "shaders/backrooms/level.vert.spv", "shaders/backrooms/ceiling.frag.spv");
+
+        // ---- VHS filter: scene renders offscreen, vhs.frag composites it ----
+        renderer().setPostProcessShader("shaders/backrooms/vhs.vert.spv",
+                                        "shaders/backrooms/vhs.frag.spv");
+        renderer().postProcessStrength = 0.55f; // baseline tape wear
 
         // Warm yellow-green ambient (the photo's overall cast); clear color
         // matches the shaders' fog color (gamma-corrected) so geometry edges
@@ -130,6 +146,11 @@ protected:
         flashId_ = torch.id();
         // panel pool (7) + flashlight = 8 = the engine's per-frame light limit
 
+        // ---- Captain Clark: spawned a few rooms out, already on the prowl ----
+        bk::AudioSystem::get().start(); // before spawn: his AudioSource loads here
+        clarkId_ = bk::spawnCaptainClark(scene(), renderer(),
+                                         {6.5f * bk::kCell, 0.0f, 6.5f * bk::kCell});
+
         // ---- input & audio ---------------------------------------------------
         setEditorVisible(false); // start in play mode; F1 brings the editor up
         glfwSetInputMode(window().handle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -162,6 +183,11 @@ protected:
         bool f = window().keyDown(GLFW_KEY_F);
         if (f && !prevF_ && !menuOpen_ && !editMode_) flashlightOn_ = !flashlightOn_;
         prevF_ = f;
+
+        bool v = window().keyDown(GLFW_KEY_V);
+        if (v && !prevV_ && !menuOpen_ && !editMode_)
+            renderer().setPostProcessEnabled(!renderer().postProcessEnabled());
+        prevV_ = v;
 
         time_ = std::fmod(time_ + dt, kTimeWrap);
 
@@ -199,6 +225,39 @@ protected:
 
         updateLights(pos);
         updateFlashlight();
+
+        // ---- Captain Clark + VHS signal -------------------------------------
+        // The monster keeps stalking while the pause menu is up only in edit
+        // mode (where the "player" is the fly camera and being chased is fun).
+        if (!menuOpen_) {
+            auto clark = bk::updateCaptainClarks(scene(), pos, dt);
+            if (clark.caught) {           // jumpscare: signal scrambles,
+                glitchBurst_ = 1.2f;      // the view convulses
+                shake_ = 1.0f;
+            }
+            clarkProximity_ = glm::clamp(1.0f - clark.nearest / 12.0f, 0.0f, 1.0f);
+        }
+        glitchBurst_ = std::max(0.0f, glitchBurst_ - dt * 0.7f);
+
+        // Camera shake: decaying high-frequency rotation jitter on top of the
+        // look controller's pitch/yaw (which rewrites rotation every frame, so
+        // the offset never accumulates).
+        if (shake_ > 0.0f) {
+            shake_ = std::max(0.0f, shake_ - dt * 1.6f);
+            float s = shake_ * shake_ * 4.5f;
+            camera->transform().rotation +=
+                glm::vec3(std::sin(time_ * 117.0f) * s, std::sin(time_ * 89.0f) * s,
+                          std::sin(time_ * 53.0f) * s * 0.5f);
+        }
+
+        // 3D audio listener rides the player camera.
+        bk::AudioSystem::get().setListener(camera->transform().position,
+                                           camera->transform().forward());
+
+        // Proximity bleeds interference into the tape (params.x in vhs.frag).
+        renderer().postProcessTime = time_;
+        renderer().postProcessParams.x =
+            glitchBurst_ + clarkProximity_ * clarkProximity_ * 0.45f;
     }
 
     void onGui() override {
@@ -217,7 +276,7 @@ protected:
         if (ImGui::Checkbox("Fullscreen", &fs)) setFullscreen(fs);
 
         ImGui::Separator();
-        ImGui::TextDisabled("WASD walk  |  Shift hurry  |  F flashlight  |  F1 editor");
+        ImGui::TextDisabled("WASD walk  |  Shift hurry  |  F flashlight  |  V vhs  |  F1 editor");
 
         ImGui::Separator();
         if (ImGui::Button("Quit", {220, 0})) close();
@@ -381,9 +440,13 @@ private:
 
     // Entities are referenced by id and resolved each frame: the editor can
     // delete anything, and scene().find() simply returns nullptr afterwards.
-    uint32_t camId_ = 0, floorId_ = 0, ceilId_ = 0, flashId_ = 0;
+    uint32_t camId_ = 0, floorId_ = 0, ceilId_ = 0, flashId_ = 0, clarkId_ = 0;
     std::vector<uint32_t> wallPool_;
     std::vector<uint32_t> lightIds_;
+
+    float clarkProximity_ = 0.0f; // 0..1, feeds VHS interference
+    float glitchBurst_    = 0.0f; // decaying spike after being caught
+    float shake_          = 0.0f; // decaying camera shake after the jumpscare
 
     int lastCx_ = 0, lastCz_ = 0;
     float yaw_ = 0.0f, pitch_ = 0.0f;
@@ -393,7 +456,7 @@ private:
     float time_ = 0.0f;
 
     bool menuOpen_ = false, flashlightOn_ = false, editMode_ = false;
-    bool prevEsc_ = false, prevF_ = false, prevF1_ = false;
+    bool prevEsc_ = false, prevF_ = false, prevF1_ = false, prevV_ = false;
 
     bk::Audio audio_;
 };

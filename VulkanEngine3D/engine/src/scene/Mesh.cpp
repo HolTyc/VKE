@@ -4,7 +4,11 @@
 
 #include <tiny_obj_loader.h>
 
+#define CGLTF_IMPLEMENTATION
+#include <cgltf.h>
+
 #include <glm/gtc/constants.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <cstring>
 #include <map>
@@ -153,6 +157,90 @@ std::shared_ptr<Mesh> Mesh::loadOBJ(VulkanContext& ctx, const std::string& path)
         }
     }
 
+    return std::make_shared<Mesh>(ctx, vertices, indices);
+}
+
+// ------------------------------------------------------------------ GLB load
+
+std::shared_ptr<Mesh> Mesh::loadGLB(VulkanContext& ctx, const std::string& path) {
+    cgltf_options options{};
+    cgltf_data* data = nullptr;
+    if (cgltf_parse_file(&options, path.c_str(), &data) != cgltf_result_success ||
+        cgltf_load_buffers(&options, data, path.c_str()) != cgltf_result_success)
+        throw std::runtime_error("Failed to load GLB '" + path + "'");
+
+    std::vector<Vertex> vertices;
+    std::vector<uint32_t> indices;
+
+    for (cgltf_size n = 0; n < data->nodes_count; ++n) {
+        const cgltf_node& node = data->nodes[n];
+        if (!node.mesh) continue;
+
+        // Skeletal stub: skins, joints, weights and animations are parsed by
+        // cgltf but deliberately not consumed — the mesh is baked at bind
+        // pose. Per the glTF spec a skinned node's own transform is ignored.
+        glm::mat4 world{1.0f};
+        if (!node.skin) {
+            float m[16];
+            cgltf_node_transform_world(&node, m);
+            world = glm::make_mat4(m);
+        }
+        glm::mat3 normalMat = glm::mat3(glm::transpose(glm::inverse(world)));
+
+        for (cgltf_size p = 0; p < node.mesh->primitives_count; ++p) {
+            const cgltf_primitive& prim = node.mesh->primitives[p];
+            if (prim.type != cgltf_primitive_type_triangles) continue;
+
+            const cgltf_accessor* pos = nullptr;
+            const cgltf_accessor* nrm = nullptr;
+            const cgltf_accessor* uv  = nullptr;
+            const cgltf_accessor* col = nullptr;
+            for (cgltf_size a = 0; a < prim.attributes_count; ++a) {
+                const cgltf_attribute& attr = prim.attributes[a];
+                if (attr.index != 0) continue; // only set 0 (skip JOINTS_1, ...)
+                switch (attr.type) {
+                case cgltf_attribute_type_position: pos = attr.data; break;
+                case cgltf_attribute_type_normal:   nrm = attr.data; break;
+                case cgltf_attribute_type_texcoord: uv  = attr.data; break;
+                case cgltf_attribute_type_color:    col = attr.data; break;
+                default: break; // joints/weights/tangents — skeletal stub
+                }
+            }
+            if (!pos) continue;
+
+            const uint32_t base = static_cast<uint32_t>(vertices.size());
+            for (cgltf_size i = 0; i < pos->count; ++i) {
+                Vertex v{};
+                float f[4] = {0, 0, 0, 1};
+                cgltf_accessor_read_float(pos, i, f, 3);
+                v.position = glm::vec3(world * glm::vec4(f[0], f[1], f[2], 1.0f));
+                if (nrm) {
+                    cgltf_accessor_read_float(nrm, i, f, 3);
+                    v.normal = glm::normalize(normalMat * glm::vec3(f[0], f[1], f[2]));
+                }
+                if (uv) {
+                    cgltf_accessor_read_float(uv, i, f, 2);
+                    v.uv = {f[0], f[1]};
+                }
+                if (col) {
+                    cgltf_accessor_read_float(col, i, f, 4);
+                    v.color = {f[0], f[1], f[2]};
+                }
+                vertices.push_back(v);
+            }
+
+            if (prim.indices) {
+                for (cgltf_size i = 0; i < prim.indices->count; ++i)
+                    indices.push_back(base + static_cast<uint32_t>(
+                                                 cgltf_accessor_read_index(prim.indices, i)));
+            } else {
+                for (cgltf_size i = 0; i < pos->count; ++i)
+                    indices.push_back(base + static_cast<uint32_t>(i));
+            }
+        }
+    }
+
+    cgltf_free(data);
     return std::make_shared<Mesh>(ctx, vertices, indices);
 }
 

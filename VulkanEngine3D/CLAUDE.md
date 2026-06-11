@@ -147,6 +147,30 @@ four built-ins; drive custom behavior from `onUpdate` via `scene().forEach<MyCom
 4. Apply gamma manually in fragment shaders (`pow(c, vec3(1.0/2.2))`) — the
    swapchain is UNORM, not sRGB (chosen so ImGui colors render exactly).
 
+## Post-processing (fullscreen filter)
+
+One optional fullscreen post-process pass (e.g. the backrooms VHS filter):
+
+```cpp
+renderer().setPostProcessShader("shaders/mygame/fx.vert.spv", "shaders/mygame/fx.frag.spv"); // enables it
+renderer().setPostProcessEnabled(false / true);   // runtime toggle
+renderer().postProcessTime     = t;               // seconds — feed from onUpdate
+renderer().postProcessStrength = 0.5f;            // shader convention: 0 = clean
+renderer().postProcessParams   = {...};           // free vec4 for the shader
+```
+
+While enabled the scene renders into an offscreen texture (PostProcess.hpp:
+one color+depth target per frame in flight) and the shader composites it onto
+the swapchain; ImGui draws on top, unfiltered. The vertex shader must emit a
+fullscreen triangle from `gl_VertexIndex` (no vertex buffers — copy
+`projects/backrooms/shaders/vhs.vert`); the fragment shader gets
+`sampler2D set 0 binding 0` (the scene) and a push block of two vec4s:
+`timeRes` (time, strength, width, height) + `params`. Gotcha: the offscreen
+scene pass must stay render-pass *compatible* with the swapchain pass —
+identical attachment formats/sample counts **and identical subpass
+dependencies** (see the NOTE in Swapchain::createRenderPass) — because all
+scene pipelines are built against the swapchain pass but recorded in it.
+
 ## Editor
 
 When `cfg.editor = true`: main menu bar (render-mode switch, quit), Hierarchy

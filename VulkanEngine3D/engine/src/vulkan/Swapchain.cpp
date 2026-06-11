@@ -178,16 +178,30 @@ void Swapchain::createRenderPass() {
     subpass.pColorAttachments = &colorRef;
     subpass.pDepthStencilAttachment = &depthRef;
 
-    VkSubpassDependency dependency{};
-    dependency.srcSubpass = VK_SUBPASS_EXTERNAL;
-    dependency.dstSubpass = 0;
-    dependency.srcStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT |
-                              VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
-    dependency.srcAccessMask = 0;
-    dependency.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT |
-                              VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
-    dependency.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT |
-                               VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+    // NOTE: this dependency array must stay byte-identical to the one in
+    // PostProcess::createScenePass — render pass *compatibility* (which lets
+    // scene pipelines built here run in the offscreen pass) requires the
+    // passes to be identical except for layouts and load/store ops, and that
+    // includes subpass dependencies.
+    std::array<VkSubpassDependency, 2> deps{};
+    deps[0].srcSubpass = VK_SUBPASS_EXTERNAL;
+    deps[0].dstSubpass = 0;
+    deps[0].srcStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT |
+                           VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
+    deps[0].srcAccessMask = 0;
+    deps[0].dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT |
+                           VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
+    deps[0].dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT |
+                            VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+    // Color writes -> later fragment-shader reads. Only the offscreen
+    // post-process pass actually needs this (composite samples the scene);
+    // here it is inert but keeps the two passes compatible.
+    deps[1].srcSubpass = 0;
+    deps[1].dstSubpass = VK_SUBPASS_EXTERNAL;
+    deps[1].srcStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    deps[1].srcAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+    deps[1].dstStageMask = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT;
+    deps[1].dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
 
     std::array<VkAttachmentDescription, 2> attachments = {color, depth};
     VkRenderPassCreateInfo info{};
@@ -196,8 +210,8 @@ void Swapchain::createRenderPass() {
     info.pAttachments = attachments.data();
     info.subpassCount = 1;
     info.pSubpasses = &subpass;
-    info.dependencyCount = 1;
-    info.pDependencies = &dependency;
+    info.dependencyCount = static_cast<uint32_t>(deps.size());
+    info.pDependencies = deps.data();
 
     VK_CHECK(vkCreateRenderPass(ctx_.device, &info, nullptr, &renderPass_));
 }

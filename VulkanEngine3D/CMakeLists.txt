@@ -28,6 +28,17 @@ FetchContent_Declare(tinyobjloader
 
 FetchContent_MakeAvailable(imgui tinyobjloader)
 
+# cgltf (single header) for binary glTF (.glb) models. Download only — the
+# implementation is compiled inside engine/src/scene/Mesh.cpp.
+FetchContent_Declare(cgltf
+    GIT_REPOSITORY https://github.com/jkuhlmann/cgltf.git
+    GIT_TAG        v1.14
+    GIT_SHALLOW    TRUE)
+FetchContent_GetProperties(cgltf)
+if(NOT cgltf_POPULATED)
+    FetchContent_Populate(cgltf)
+endif()
+
 # Dear ImGui core + GLFW/Vulkan backends, built as a static library.
 add_library(imgui_vulkan STATIC
     ${imgui_SOURCE_DIR}/imgui.cpp
@@ -68,6 +79,7 @@ file(GLOB_RECURSE VKE_SOURCES CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/engine/src/*
 
 add_library(vke STATIC ${VKE_SOURCES})
 target_include_directories(vke PUBLIC ${CMAKE_SOURCE_DIR}/engine/include)
+target_include_directories(vke PRIVATE ${cgltf_SOURCE_DIR})
 target_link_libraries(vke PUBLIC Vulkan::Vulkan glfw imgui_vulkan tinyobjloader)
 if(TARGET glm::glm)
     target_link_libraries(vke PUBLIC glm::glm)
