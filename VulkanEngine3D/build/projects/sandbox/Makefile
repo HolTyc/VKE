@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/sandbox//CMakeFiles/progress.marks
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/sandbox//CMakeFiles/progress.marks
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/clean
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,23 +148,23 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/preinstall
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/preinstall
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/VerifyGlobs.cmake
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/VerifyGlobs.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 projects/sandbox/CMakeFiles/sandbox.dir/rule:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/CMakeFiles/sandbox.dir/rule
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/CMakeFiles/sandbox.dir/rule
 .PHONY : projects/sandbox/CMakeFiles/sandbox.dir/rule
 
 # Convenience name for target.
@@ -173,7 +173,7 @@ sandbox: projects/sandbox/CMakeFiles/sandbox.dir/rule
 
 # fast build rule for target.
 sandbox/fast:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/build
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/build
 .PHONY : sandbox/fast
 
 src/main.o: src/main.cpp.o
@@ -181,7 +181,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -189,7 +189,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.i
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -197,7 +197,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.s
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -227,7 +227,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/VerifyGlobs.cmake
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/VerifyGlobs.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

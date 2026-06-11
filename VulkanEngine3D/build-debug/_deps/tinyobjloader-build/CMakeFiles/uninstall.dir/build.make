@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug
 
 # Utility rule file for uninstall.
 
@@ -67,7 +67,7 @@ include _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/compiler_depend.make
 include _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/progress.make
 
 _deps/tinyobjloader-build/CMakeFiles/uninstall:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build/cmake_uninstall.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build/cmake_uninstall.cmake
 
 uninstall: _deps/tinyobjloader-build/CMakeFiles/uninstall
 uninstall: _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/build.make
@@ -78,10 +78,10 @@ _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/build: uninstall
 .PHONY : _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/build
 
 _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/clean:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && $(CMAKE_COMMAND) -P CMakeFiles/uninstall.dir/cmake_clean.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && $(CMAKE_COMMAND) -P CMakeFiles/uninstall.dir/cmake_clean.cmake
 .PHONY : _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/clean
 
 _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-src /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-src /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/depend
 

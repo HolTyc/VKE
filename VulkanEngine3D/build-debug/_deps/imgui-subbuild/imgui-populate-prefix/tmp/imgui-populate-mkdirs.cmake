@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-src"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-build"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/tmp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-src"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-build"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/tmp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/imgui-populate-prefix/src/imgui-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

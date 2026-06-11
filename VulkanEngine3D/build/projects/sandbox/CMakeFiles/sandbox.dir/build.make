@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build
 
 # Include any dependencies generated for this target.
 include projects/sandbox/CMakeFiles/sandbox.dir/depend.make
@@ -70,18 +70,18 @@ include projects/sandbox/CMakeFiles/sandbox.dir/progress.make
 include projects/sandbox/CMakeFiles/sandbox.dir/flags.make
 
 projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o: projects/sandbox/CMakeFiles/sandbox.dir/flags.make
-projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox/src/main.cpp
+projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox/src/main.cpp
 projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o: projects/sandbox/CMakeFiles/sandbox.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/sandbox && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o -MF CMakeFiles/sandbox.dir/src/main.cpp.o.d -o CMakeFiles/sandbox.dir/src/main.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/sandbox && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.o -MF CMakeFiles/sandbox.dir/src/main.cpp.o.d -o CMakeFiles/sandbox.dir/src/main.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox/src/main.cpp
 
 projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sandbox.dir/src/main.cpp.i"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/sandbox && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox/src/main.cpp > CMakeFiles/sandbox.dir/src/main.cpp.i
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/sandbox && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox/src/main.cpp > CMakeFiles/sandbox.dir/src/main.cpp.i
 
 projects/sandbox/CMakeFiles/sandbox.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sandbox.dir/src/main.cpp.s"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/sandbox && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox/src/main.cpp -o CMakeFiles/sandbox.dir/src/main.cpp.s
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/sandbox && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox/src/main.cpp -o CMakeFiles/sandbox.dir/src/main.cpp.s
 
 # Object files for target sandbox
 sandbox_OBJECTS = \
@@ -98,18 +98,18 @@ sandbox: /usr/lib/x86_64-linux-gnu/libvulkan.so
 sandbox: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 sandbox: _deps/tinyobjloader-build/libtinyobjloader.a
 sandbox: projects/sandbox/CMakeFiles/sandbox.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../../sandbox"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/sandbox && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sandbox.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../../sandbox"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/sandbox && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sandbox.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 projects/sandbox/CMakeFiles/sandbox.dir/build: sandbox
 .PHONY : projects/sandbox/CMakeFiles/sandbox.dir/build
 
 projects/sandbox/CMakeFiles/sandbox.dir/clean:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/sandbox && $(CMAKE_COMMAND) -P CMakeFiles/sandbox.dir/cmake_clean.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/sandbox && $(CMAKE_COMMAND) -P CMakeFiles/sandbox.dir/cmake_clean.cmake
 .PHONY : projects/sandbox/CMakeFiles/sandbox.dir/clean
 
 projects/sandbox/CMakeFiles/sandbox.dir/depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/sandbox /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/sandbox/CMakeFiles/sandbox.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/sandbox /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/sandbox/CMakeFiles/sandbox.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : projects/sandbox/CMakeFiles/sandbox.dir/depend
 

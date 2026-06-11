@@ -3,9 +3,9 @@
 # No other meaning or use of this file is supported.
 
 method=git
-command=/usr/bin/cmake;-P;/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/miniaudio-subbuild/miniaudio-populate-prefix/tmp/miniaudio-populate-gitclone.cmake
-source_dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/miniaudio-src
-work_dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps
+command=/usr/bin/cmake;-P;/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/miniaudio-subbuild/miniaudio-populate-prefix/tmp/miniaudio-populate-gitclone.cmake
+source_dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/miniaudio-src
+work_dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps
 repository=https://github.com/mackron/miniaudio.git
 remote=origin
 init_submodules=TRUE

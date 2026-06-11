@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild
 
 # Utility rule file for tinyobjloader-populate.
 
@@ -77,60 +77,60 @@ CMakeFiles/tinyobjloader-populate-complete: tinyobjloader-populate-prefix/src/ti
 CMakeFiles/tinyobjloader-populate-complete: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build
 CMakeFiles/tinyobjloader-populate-complete: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install
 CMakeFiles/tinyobjloader-populate-complete: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'tinyobjloader-populate'"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles
-	/usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate-complete
-	/usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-done
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'tinyobjloader-populate'"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles
+	/usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate-complete
+	/usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-done
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update:
 .PHONY : tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "No build step for 'tinyobjloader-populate'"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E echo_append
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "No build step for 'tinyobjloader-populate'"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E echo_append
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure: tinyobjloader-populate-prefix/tmp/tinyobjloader-populate-cfgcmd.txt
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "No configure step for 'tinyobjloader-populate'"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E echo_append
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "No configure step for 'tinyobjloader-populate'"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E echo_append
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-configure
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-gitinfo.txt
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (git clone) for 'tinyobjloader-populate'"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps && /usr/bin/cmake -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp/tinyobjloader-populate-gitclone.cmake
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (git clone) for 'tinyobjloader-populate'"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps && /usr/bin/cmake -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp/tinyobjloader-populate-gitclone.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'tinyobjloader-populate'"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E echo_append
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'tinyobjloader-populate'"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E echo_append
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'tinyobjloader-populate'"
-	/usr/bin/cmake -Dcfgdir= -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp/tinyobjloader-populate-mkdirs.cmake
-	/usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'tinyobjloader-populate'"
+	/usr/bin/cmake -Dcfgdir= -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp/tinyobjloader-populate-mkdirs.cmake
+	/usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-mkdir
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch-info.txt
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'tinyobjloader-populate'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'tinyobjloader-populate'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch
+	/usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-patch
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update:
 .PHONY : tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-install
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No test step for 'tinyobjloader-populate'"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E echo_append
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No test step for 'tinyobjloader-populate'"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E echo_append
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build && /usr/bin/cmake -E touch /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-test
 
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update: tinyobjloader-populate-prefix/tmp/tinyobjloader-populate-gitupdate.cmake
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update-info.txt
 tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-update: tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/tinyobjloader-populate-download
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Performing update step for 'tinyobjloader-populate'"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-src && /usr/bin/cmake -Dcan_fetch=YES -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp/tinyobjloader-populate-gitupdate.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Performing update step for 'tinyobjloader-populate'"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-src && /usr/bin/cmake -Dcan_fetch=YES -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp/tinyobjloader-populate-gitupdate.cmake
 
 tinyobjloader-populate: CMakeFiles/tinyobjloader-populate
 tinyobjloader-populate: CMakeFiles/tinyobjloader-populate-complete
@@ -154,6 +154,6 @@ CMakeFiles/tinyobjloader-populate.dir/clean:
 .PHONY : CMakeFiles/tinyobjloader-populate.dir/clean
 
 CMakeFiles/tinyobjloader-populate.dir/depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/CMakeFiles/tinyobjloader-populate.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/tinyobjloader-populate.dir/depend
 

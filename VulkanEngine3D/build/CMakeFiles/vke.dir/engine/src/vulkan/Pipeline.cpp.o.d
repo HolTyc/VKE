@@ -1,9 +1,9 @@
 CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/Pipeline.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/Context.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/../Core.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/Pipeline.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/Context.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/../Core.hpp \
  /usr/include/vulkan/vulkan.h /usr/include/vulkan/vk_platform.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
@@ -153,7 +153,7 @@ CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Mesh.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Mesh.hpp \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \

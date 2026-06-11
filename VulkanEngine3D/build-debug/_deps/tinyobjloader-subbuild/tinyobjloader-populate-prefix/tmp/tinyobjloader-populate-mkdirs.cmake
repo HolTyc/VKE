@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-src"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-src"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/tmp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-subbuild/tinyobjloader-populate-prefix/src/tinyobjloader-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

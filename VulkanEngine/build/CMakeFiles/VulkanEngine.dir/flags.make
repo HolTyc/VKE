@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DGLFW_INCLUDE_VULKAN -DGLM_FORCE_DEPTH_ZERO_TO_ONE -DGLM_FORCE_RADIANS
 
-CXX_INCLUDES = -I/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/src -I/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-src -I/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/imgui-src -I/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/imgui-src/backends
+CXX_INCLUDES = -I/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/src -I/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-src -I/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/imgui-src -I/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/imgui-src/backends
 
-CXX_FLAGS = -g -std=gnu++20 -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
 

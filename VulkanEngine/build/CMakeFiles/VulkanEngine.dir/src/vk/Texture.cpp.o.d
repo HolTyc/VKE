@@ -1,8 +1,8 @@
 CMakeFiles/VulkanEngine.dir/src/vk/Texture.cpp.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/src/vk/Texture.cpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/src/vk/Texture.cpp \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/src/vk/Texture.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/src/core/Base.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/src/vk/Texture.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/src/core/Base.h \
  /usr/include/c++/13/cstdint \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -37,8 +37,10 @@ CMakeFiles/VulkanEngine.dir/src/vk/Texture.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/include/c++/13/cstdlib /usr/include/stdlib.h \
- /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/c++/13/cstdlib \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
@@ -57,15 +59,21 @@ CMakeFiles/VulkanEngine.dir/src/vk/Texture.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h \
+ /usr/include/x86_64-linux-gnu/bits/select-decl.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h \
  /usr/include/c++/13/bits/std_abs.h /usr/include/c++/13/cstring \
  /usr/include/string.h /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/stl_function.h \
  /usr/include/c++/13/bits/move.h /usr/include/c++/13/type_traits \
  /usr/include/c++/13/backward/binders.h /usr/include/c++/13/tuple \
@@ -130,6 +138,8 @@ CMakeFiles/VulkanEngine.dir/src/vk/Texture.cpp.o: \
  /usr/include/c++/13/bits/postypes.h /usr/include/c++/13/cwchar \
  /usr/include/wchar.h /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar2-decl.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar2.h \
  /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/bits/nested_exception.h \
@@ -202,6 +212,8 @@ CMakeFiles/VulkanEngine.dir/src/vk/Texture.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd-decl.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /usr/include/linux/close_range.h /usr/include/syscall.h \
  /usr/include/x86_64-linux-gnu/sys/syscall.h \
@@ -224,8 +236,8 @@ CMakeFiles/VulkanEngine.dir/src/vk/Texture.cpp.o: \
  /usr/include/vk_video/vulkan_video_codec_h265std.h \
  /usr/include/vk_video/vulkan_video_codec_h264std_decode.h \
  /usr/include/vk_video/vulkan_video_codec_h265std_decode.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/src/vk/VulkanContext.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-src/stb_image.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/src/vk/VulkanContext.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-src/stb_image.h \
  /usr/include/c++/13/stdlib.h /usr/include/assert.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h \

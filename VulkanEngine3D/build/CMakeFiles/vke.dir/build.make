@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/vke.dir/depend.make
@@ -70,130 +70,130 @@ include CMakeFiles/vke.dir/progress.make
 include CMakeFiles/vke.dir/flags.make
 
 CMakeFiles/vke.dir/engine/src/core/Application.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/core/Application.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Application.cpp
+CMakeFiles/vke.dir/engine/src/core/Application.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Application.cpp
 CMakeFiles/vke.dir/engine/src/core/Application.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vke.dir/engine/src/core/Application.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/core/Application.cpp.o -MF CMakeFiles/vke.dir/engine/src/core/Application.cpp.o.d -o CMakeFiles/vke.dir/engine/src/core/Application.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Application.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vke.dir/engine/src/core/Application.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/core/Application.cpp.o -MF CMakeFiles/vke.dir/engine/src/core/Application.cpp.o.d -o CMakeFiles/vke.dir/engine/src/core/Application.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Application.cpp
 
 CMakeFiles/vke.dir/engine/src/core/Application.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/core/Application.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Application.cpp > CMakeFiles/vke.dir/engine/src/core/Application.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Application.cpp > CMakeFiles/vke.dir/engine/src/core/Application.cpp.i
 
 CMakeFiles/vke.dir/engine/src/core/Application.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/core/Application.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Application.cpp -o CMakeFiles/vke.dir/engine/src/core/Application.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Application.cpp -o CMakeFiles/vke.dir/engine/src/core/Application.cpp.s
 
 CMakeFiles/vke.dir/engine/src/core/Core.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/core/Core.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Core.cpp
+CMakeFiles/vke.dir/engine/src/core/Core.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Core.cpp
 CMakeFiles/vke.dir/engine/src/core/Core.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vke.dir/engine/src/core/Core.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/core/Core.cpp.o -MF CMakeFiles/vke.dir/engine/src/core/Core.cpp.o.d -o CMakeFiles/vke.dir/engine/src/core/Core.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Core.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vke.dir/engine/src/core/Core.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/core/Core.cpp.o -MF CMakeFiles/vke.dir/engine/src/core/Core.cpp.o.d -o CMakeFiles/vke.dir/engine/src/core/Core.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Core.cpp
 
 CMakeFiles/vke.dir/engine/src/core/Core.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/core/Core.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Core.cpp > CMakeFiles/vke.dir/engine/src/core/Core.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Core.cpp > CMakeFiles/vke.dir/engine/src/core/Core.cpp.i
 
 CMakeFiles/vke.dir/engine/src/core/Core.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/core/Core.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Core.cpp -o CMakeFiles/vke.dir/engine/src/core/Core.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Core.cpp -o CMakeFiles/vke.dir/engine/src/core/Core.cpp.s
 
 CMakeFiles/vke.dir/engine/src/core/Window.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/core/Window.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Window.cpp
+CMakeFiles/vke.dir/engine/src/core/Window.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Window.cpp
 CMakeFiles/vke.dir/engine/src/core/Window.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vke.dir/engine/src/core/Window.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/core/Window.cpp.o -MF CMakeFiles/vke.dir/engine/src/core/Window.cpp.o.d -o CMakeFiles/vke.dir/engine/src/core/Window.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vke.dir/engine/src/core/Window.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/core/Window.cpp.o -MF CMakeFiles/vke.dir/engine/src/core/Window.cpp.o.d -o CMakeFiles/vke.dir/engine/src/core/Window.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Window.cpp
 
 CMakeFiles/vke.dir/engine/src/core/Window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/core/Window.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Window.cpp > CMakeFiles/vke.dir/engine/src/core/Window.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Window.cpp > CMakeFiles/vke.dir/engine/src/core/Window.cpp.i
 
 CMakeFiles/vke.dir/engine/src/core/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/core/Window.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Window.cpp -o CMakeFiles/vke.dir/engine/src/core/Window.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Window.cpp -o CMakeFiles/vke.dir/engine/src/core/Window.cpp.s
 
 CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/editor/EditorGUI.cpp
+CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/editor/EditorGUI.cpp
 CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o -MF CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o.d -o CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/editor/EditorGUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o -MF CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o.d -o CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/editor/EditorGUI.cpp
 
 CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/editor/EditorGUI.cpp > CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/editor/EditorGUI.cpp > CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.i
 
 CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/editor/EditorGUI.cpp -o CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/editor/EditorGUI.cpp -o CMakeFiles/vke.dir/engine/src/editor/EditorGUI.cpp.s
 
 CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/render/Renderer3D.cpp
+CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/render/Renderer3D.cpp
 CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o -MF CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o.d -o CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/render/Renderer3D.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o -MF CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o.d -o CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/render/Renderer3D.cpp
 
 CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/render/Renderer3D.cpp > CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/render/Renderer3D.cpp > CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.i
 
 CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/render/Renderer3D.cpp -o CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/render/Renderer3D.cpp -o CMakeFiles/vke.dir/engine/src/render/Renderer3D.cpp.s
 
 CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/scene/Mesh.cpp
+CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/scene/Mesh.cpp
 CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o -MF CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o.d -o CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/scene/Mesh.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o -MF CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o.d -o CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/scene/Mesh.cpp
 
 CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/scene/Mesh.cpp > CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/scene/Mesh.cpp > CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.i
 
 CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/scene/Mesh.cpp -o CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/scene/Mesh.cpp -o CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.s
 
 CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Context.cpp
+CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Context.cpp
 CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o -MF CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o.d -o CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Context.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o -MF CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o.d -o CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Context.cpp
 
 CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Context.cpp > CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Context.cpp > CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.i
 
 CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Context.cpp -o CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Context.cpp -o CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.s
 
 CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp
+CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp
 CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o -MF CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o.d -o CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o -MF CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o.d -o CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp
 
 CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp > CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp > CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.i
 
 CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp -o CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp -o CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.s
 
 CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o: CMakeFiles/vke.dir/flags.make
-CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp
+CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp
 CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o: CMakeFiles/vke.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o -MF CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o.d -o CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o -MF CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o.d -o CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp
 
 CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp > CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp > CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.i
 
 CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp -o CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp -o CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.s
 
 # Object files for target vke
 vke_OBJECTS = \
@@ -221,7 +221,7 @@ libvke.a: CMakeFiles/vke.dir/engine/src/vulkan/Pipeline.cpp.o
 libvke.a: CMakeFiles/vke.dir/engine/src/vulkan/Swapchain.cpp.o
 libvke.a: CMakeFiles/vke.dir/build.make
 libvke.a: CMakeFiles/vke.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libvke.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libvke.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/vke.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vke.dir/link.txt --verbose=$(VERBOSE)
 
@@ -234,6 +234,6 @@ CMakeFiles/vke.dir/clean:
 .PHONY : CMakeFiles/vke.dir/clean
 
 CMakeFiles/vke.dir/depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/vke.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/vke.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/vke.dir/depend
 

@@ -1,8 +1,8 @@
 CMakeFiles/imgui_vulkan.dir/_deps/imgui-src/imgui_demo.cpp.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/imgui-src/imgui_demo.cpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/imgui-src/imgui_demo.cpp \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/imgui-src/imgui.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/imgui-src/imconfig.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/imgui-src/imgui.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/imgui-src/imconfig.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h /usr/include/string.h \

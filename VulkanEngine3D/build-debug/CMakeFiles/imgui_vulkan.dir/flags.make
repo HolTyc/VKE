@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-src -I/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/imgui-src/backends
+CXX_INCLUDES = -I/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-src -I/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-src/backends
 
 CXX_FLAGS = -g -std=c++20
 

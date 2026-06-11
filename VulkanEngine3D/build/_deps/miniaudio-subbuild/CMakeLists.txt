@@ -28,8 +28,8 @@ set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
 include(ExternalProject)
 ExternalProject_Add(miniaudio-populate
                      "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/mackron/miniaudio.git" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "GIT_TAG" "0.11.21" "GIT_SHALLOW" "TRUE"
-                    SOURCE_DIR          "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/miniaudio-src"
-                    BINARY_DIR          "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/miniaudio-build"
+                    SOURCE_DIR          "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/miniaudio-src"
+                    BINARY_DIR          "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/miniaudio-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

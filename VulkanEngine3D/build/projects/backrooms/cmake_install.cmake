@@ -1,4 +1,4 @@
-# Install script for directory: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms
+# Install script for directory: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

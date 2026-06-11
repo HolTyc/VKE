@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-src"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-build"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/tmp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src/stb-populate-stamp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src/stb-populate-stamp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-src"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-build"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/tmp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src/stb-populate-stamp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src/stb-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src/stb-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src/stb-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src/stb-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/_deps/stb-subbuild/stb-populate-prefix/src/stb-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

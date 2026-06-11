@@ -1,7 +1,7 @@
 _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/tinyobjloader-src/tiny_obj_loader.cc \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/tinyobjloader-src/tiny_obj_loader.cc \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/tinyobjloader-src/tiny_obj_loader.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/tinyobjloader-src/tiny_obj_loader.h \
  /usr/include/c++/13/map /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

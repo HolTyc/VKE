@@ -1,8 +1,8 @@
 CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Context.cpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Context.cpp \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/Context.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/../Core.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/Context.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/../Core.hpp \
  /usr/include/vulkan/vulkan.h /usr/include/vulkan/vk_platform.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
@@ -152,7 +152,7 @@ CMakeFiles/vke.dir/engine/src/vulkan/Context.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Window.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Window.hpp \
  /usr/include/GLFW/glfw3.h /usr/include/GL/gl.h /usr/include/GL/glext.h \
  /usr/include/KHR/khrplatform.h /usr/include/c++/13/cstring \
  /usr/include/string.h /usr/include/strings.h \

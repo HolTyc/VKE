@@ -3,106 +3,106 @@
 cmake_policy(SET CMP0009 NEW)
 
 # SHADER_SOURCES at CMakeLists.txt:48 (file)
-file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/*.frag")
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/*.frag")
 set(OLD_GLOB
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/basic.frag"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/checker.frag"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/matcap.frag"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/normal.frag"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/rim.frag"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/toon.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/basic.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/checker.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/matcap.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/normal.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/rim.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/toon.frag"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # SHADER_SOURCES at CMakeLists.txt:48 (file)
-file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/*.vert")
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/*.vert")
 set(OLD_GLOB
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/basic.vert"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/toon.vert"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/basic.vert"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/toon.vert"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # PROJECT_SHADERS at cmake/VkeProject.cmake:22 (file)
-file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/*.frag")
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/*.frag")
 set(OLD_GLOB
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/carpet.frag"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/ceiling.frag"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/wall.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/carpet.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/ceiling.frag"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/wall.frag"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # PROJECT_SHADERS at cmake/VkeProject.cmake:22 (file)
-file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/*.vert")
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/*.vert")
 set(OLD_GLOB
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/level.vert"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/level.vert"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # PROJECT_SHADERS at cmake/VkeProject.cmake:22 (file)
-file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox/shaders/*.frag")
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox/shaders/*.frag")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # PROJECT_SHADERS at cmake/VkeProject.cmake:22 (file)
-file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox/shaders/*.vert")
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox/shaders/*.vert")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # VKE_SOURCES at CMakeLists.txt:67 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/*.cpp")
 set(OLD_GLOB
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Application.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Core.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Window.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/editor/EditorGUI.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/render/Renderer3D.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/scene/Mesh.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Context.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Application.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Core.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Window.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/editor/EditorGUI.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/render/Renderer3D.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/scene/Mesh.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Context.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Pipeline.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/vulkan/Swapchain.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # PROJECT_SOURCES at cmake/VkeProject.cmake:13 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/*.cpp")
 set(OLD_GLOB
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/Audio.cpp"
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/main.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/Audio.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # PROJECT_SOURCES at cmake/VkeProject.cmake:13 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox/src/*.cpp")
 set(OLD_GLOB
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/sandbox/src/main.cpp"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/sandbox/src/main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/cmake.verify_globs")
 endif()

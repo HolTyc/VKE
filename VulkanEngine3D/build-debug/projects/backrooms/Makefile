@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/projects/backrooms//CMakeFiles/progress.marks
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles 0
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/projects/backrooms//CMakeFiles/progress.marks
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/clean
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,23 +148,23 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/preinstall
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/preinstall
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles/VerifyGlobs.cmake
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles/VerifyGlobs.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 projects/backrooms/CMakeFiles/backrooms.dir/rule:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/CMakeFiles/backrooms.dir/rule
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/CMakeFiles/backrooms.dir/rule
 .PHONY : projects/backrooms/CMakeFiles/backrooms.dir/rule
 
 # Convenience name for target.
@@ -173,12 +173,12 @@ backrooms: projects/backrooms/CMakeFiles/backrooms.dir/rule
 
 # fast build rule for target.
 backrooms/fast:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/build
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/build
 .PHONY : backrooms/fast
 
 # Convenience name for target.
 projects/backrooms/CMakeFiles/backrooms_shaders.dir/rule:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/CMakeFiles/backrooms_shaders.dir/rule
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/CMakeFiles/backrooms_shaders.dir/rule
 .PHONY : projects/backrooms/CMakeFiles/backrooms_shaders.dir/rule
 
 # Convenience name for target.
@@ -187,7 +187,7 @@ backrooms_shaders: projects/backrooms/CMakeFiles/backrooms_shaders.dir/rule
 
 # fast build rule for target.
 backrooms_shaders/fast:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms_shaders.dir/build.make projects/backrooms/CMakeFiles/backrooms_shaders.dir/build
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms_shaders.dir/build.make projects/backrooms/CMakeFiles/backrooms_shaders.dir/build
 .PHONY : backrooms_shaders/fast
 
 src/Audio.o: src/Audio.cpp.o
@@ -195,7 +195,7 @@ src/Audio.o: src/Audio.cpp.o
 
 # target to build an object file
 src/Audio.cpp.o:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o
 .PHONY : src/Audio.cpp.o
 
 src/Audio.i: src/Audio.cpp.i
@@ -203,7 +203,7 @@ src/Audio.i: src/Audio.cpp.i
 
 # target to preprocess a source file
 src/Audio.cpp.i:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.i
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.i
 .PHONY : src/Audio.cpp.i
 
 src/Audio.s: src/Audio.cpp.s
@@ -211,7 +211,7 @@ src/Audio.s: src/Audio.cpp.s
 
 # target to generate assembly for a file
 src/Audio.cpp.s:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.s
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.s
 .PHONY : src/Audio.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -219,7 +219,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -227,7 +227,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.i
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -235,7 +235,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.s
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -269,7 +269,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles/VerifyGlobs.cmake
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles/VerifyGlobs.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -141,14 +141,14 @@ projects/sandbox/clean: projects/sandbox/CMakeFiles/sandbox.dir/clean
 CMakeFiles/imgui_vulkan.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui_vulkan.dir/build.make CMakeFiles/imgui_vulkan.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui_vulkan.dir/build.make CMakeFiles/imgui_vulkan.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15 "Built target imgui_vulkan"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15 "Built target imgui_vulkan"
 .PHONY : CMakeFiles/imgui_vulkan.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/imgui_vulkan.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/imgui_vulkan.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : CMakeFiles/imgui_vulkan.dir/rule
 
 # Convenience name for target.
@@ -167,14 +167,14 @@ CMakeFiles/imgui_vulkan.dir/clean:
 CMakeFiles/vke_shaders.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vke_shaders.dir/build.make CMakeFiles/vke_shaders.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vke_shaders.dir/build.make CMakeFiles/vke_shaders.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=30,31,32,33,34,35,36,37 "Built target vke_shaders"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=30,31,32,33,34,35,36,37 "Built target vke_shaders"
 .PHONY : CMakeFiles/vke_shaders.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/vke_shaders.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/vke_shaders.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : CMakeFiles/vke_shaders.dir/rule
 
 # Convenience name for target.
@@ -191,18 +191,18 @@ CMakeFiles/vke_shaders.dir/clean:
 
 # All Build rule for target.
 CMakeFiles/vke.dir/all: CMakeFiles/imgui_vulkan.dir/all
-CMakeFiles/vke.dir/all: CMakeFiles/vke_shaders.dir/all
 CMakeFiles/vke.dir/all: _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/all
+CMakeFiles/vke.dir/all: CMakeFiles/vke_shaders.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vke.dir/build.make CMakeFiles/vke.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vke.dir/build.make CMakeFiles/vke.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=20,21,22,23,24,25,26,27,28,29 "Built target vke"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=20,21,22,23,24,25,26,27,28,29 "Built target vke"
 .PHONY : CMakeFiles/vke.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/vke.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/vke.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : CMakeFiles/vke.dir/rule
 
 # Convenience name for target.
@@ -221,14 +221,14 @@ CMakeFiles/vke.dir/clean:
 _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/build.make _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/build.make _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=18,19 "Built target tinyobjloader"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=18,19 "Built target tinyobjloader"
 .PHONY : _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/rule
 
 # Convenience name for target.
@@ -247,14 +247,14 @@ _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/clean:
 _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/build.make _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/build.make _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num= "Built target uninstall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num= "Built target uninstall"
 .PHONY : _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/rule
 
 # Convenience name for target.
@@ -271,19 +271,19 @@ _deps/tinyobjloader-build/CMakeFiles/uninstall.dir/clean:
 
 # All Build rule for target.
 projects/backrooms/CMakeFiles/backrooms.dir/all: CMakeFiles/imgui_vulkan.dir/all
-projects/backrooms/CMakeFiles/backrooms.dir/all: CMakeFiles/vke.dir/all
-projects/backrooms/CMakeFiles/backrooms.dir/all: _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/all
 projects/backrooms/CMakeFiles/backrooms.dir/all: projects/backrooms/CMakeFiles/backrooms_shaders.dir/all
+projects/backrooms/CMakeFiles/backrooms.dir/all: _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/all
+projects/backrooms/CMakeFiles/backrooms.dir/all: CMakeFiles/vke.dir/all
 	$(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/depend
 	$(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms.dir/build.make projects/backrooms/CMakeFiles/backrooms.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=1,2,3 "Built target backrooms"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=1,2,3 "Built target backrooms"
 .PHONY : projects/backrooms/CMakeFiles/backrooms.dir/all
 
 # Build rule for subdir invocation for target.
 projects/backrooms/CMakeFiles/backrooms.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/CMakeFiles/backrooms.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : projects/backrooms/CMakeFiles/backrooms.dir/rule
 
 # Convenience name for target.
@@ -302,14 +302,14 @@ projects/backrooms/CMakeFiles/backrooms.dir/clean:
 projects/backrooms/CMakeFiles/backrooms_shaders.dir/all:
 	$(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms_shaders.dir/build.make projects/backrooms/CMakeFiles/backrooms_shaders.dir/depend
 	$(MAKE) $(MAKESILENT) -f projects/backrooms/CMakeFiles/backrooms_shaders.dir/build.make projects/backrooms/CMakeFiles/backrooms_shaders.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=4,5,6,7 "Built target backrooms_shaders"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=4,5,6,7 "Built target backrooms_shaders"
 .PHONY : projects/backrooms/CMakeFiles/backrooms_shaders.dir/all
 
 # Build rule for subdir invocation for target.
 projects/backrooms/CMakeFiles/backrooms_shaders.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/backrooms/CMakeFiles/backrooms_shaders.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : projects/backrooms/CMakeFiles/backrooms_shaders.dir/rule
 
 # Convenience name for target.
@@ -326,18 +326,18 @@ projects/backrooms/CMakeFiles/backrooms_shaders.dir/clean:
 
 # All Build rule for target.
 projects/sandbox/CMakeFiles/sandbox.dir/all: CMakeFiles/imgui_vulkan.dir/all
-projects/sandbox/CMakeFiles/sandbox.dir/all: CMakeFiles/vke.dir/all
 projects/sandbox/CMakeFiles/sandbox.dir/all: _deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/all
+projects/sandbox/CMakeFiles/sandbox.dir/all: CMakeFiles/vke.dir/all
 	$(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/depend
 	$(MAKE) $(MAKESILENT) -f projects/sandbox/CMakeFiles/sandbox.dir/build.make projects/sandbox/CMakeFiles/sandbox.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=16,17 "Built target sandbox"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=16,17 "Built target sandbox"
 .PHONY : projects/sandbox/CMakeFiles/sandbox.dir/all
 
 # Build rule for subdir invocation for target.
 projects/sandbox/CMakeFiles/sandbox.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 30
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projects/sandbox/CMakeFiles/sandbox.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles 0
 .PHONY : projects/sandbox/CMakeFiles/sandbox.dir/rule
 
 # Convenience name for target.
@@ -356,7 +356,7 @@ projects/sandbox/CMakeFiles/sandbox.dir/clean:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles/VerifyGlobs.cmake
+	$(CMAKE_COMMAND) -P /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

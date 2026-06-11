@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build
 
 # Include any dependencies generated for this target.
 include projects/backrooms/CMakeFiles/backrooms.dir/depend.make
@@ -70,32 +70,32 @@ include projects/backrooms/CMakeFiles/backrooms.dir/progress.make
 include projects/backrooms/CMakeFiles/backrooms.dir/flags.make
 
 projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o: projects/backrooms/CMakeFiles/backrooms.dir/flags.make
-projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/Audio.cpp
+projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/Audio.cpp
 projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o: projects/backrooms/CMakeFiles/backrooms.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o -MF CMakeFiles/backrooms.dir/src/Audio.cpp.o.d -o CMakeFiles/backrooms.dir/src/Audio.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/Audio.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o -MF CMakeFiles/backrooms.dir/src/Audio.cpp.o.d -o CMakeFiles/backrooms.dir/src/Audio.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/Audio.cpp
 
 projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backrooms.dir/src/Audio.cpp.i"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/Audio.cpp > CMakeFiles/backrooms.dir/src/Audio.cpp.i
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/Audio.cpp > CMakeFiles/backrooms.dir/src/Audio.cpp.i
 
 projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backrooms.dir/src/Audio.cpp.s"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/Audio.cpp -o CMakeFiles/backrooms.dir/src/Audio.cpp.s
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/Audio.cpp -o CMakeFiles/backrooms.dir/src/Audio.cpp.s
 
 projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: projects/backrooms/CMakeFiles/backrooms.dir/flags.make
-projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/main.cpp
+projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/main.cpp
 projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: projects/backrooms/CMakeFiles/backrooms.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o -MF CMakeFiles/backrooms.dir/src/main.cpp.o.d -o CMakeFiles/backrooms.dir/src/main.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o -MF CMakeFiles/backrooms.dir/src/main.cpp.o.d -o CMakeFiles/backrooms.dir/src/main.cpp.o -c /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/main.cpp
 
 projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backrooms.dir/src/main.cpp.i"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/main.cpp > CMakeFiles/backrooms.dir/src/main.cpp.i
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/main.cpp > CMakeFiles/backrooms.dir/src/main.cpp.i
 
 projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backrooms.dir/src/main.cpp.s"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/main.cpp -o CMakeFiles/backrooms.dir/src/main.cpp.s
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/main.cpp -o CMakeFiles/backrooms.dir/src/main.cpp.s
 
 # Object files for target backrooms
 backrooms_OBJECTS = \
@@ -114,18 +114,18 @@ backrooms: /usr/lib/x86_64-linux-gnu/libvulkan.so
 backrooms: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 backrooms: _deps/tinyobjloader-build/libtinyobjloader.a
 backrooms: projects/backrooms/CMakeFiles/backrooms.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../backrooms"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/backrooms.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../backrooms"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/backrooms.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 projects/backrooms/CMakeFiles/backrooms.dir/build: backrooms
 .PHONY : projects/backrooms/CMakeFiles/backrooms.dir/build
 
 projects/backrooms/CMakeFiles/backrooms.dir/clean:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && $(CMAKE_COMMAND) -P CMakeFiles/backrooms.dir/cmake_clean.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && $(CMAKE_COMMAND) -P CMakeFiles/backrooms.dir/cmake_clean.cmake
 .PHONY : projects/backrooms/CMakeFiles/backrooms.dir/clean
 
 projects/backrooms/CMakeFiles/backrooms.dir/depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms/CMakeFiles/backrooms.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms/CMakeFiles/backrooms.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : projects/backrooms/CMakeFiles/backrooms.dir/depend
 

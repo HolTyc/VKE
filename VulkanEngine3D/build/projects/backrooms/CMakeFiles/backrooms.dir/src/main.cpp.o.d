@@ -1,8 +1,8 @@
 projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/main.cpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/Audio.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/LevelGen.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/Audio.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/LevelGen.hpp \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/c++/13/cmath /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -227,9 +227,9 @@ projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vke.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Application.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/EditorGUI.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vke.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Application.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/EditorGUI.hpp \
  /usr/include/vulkan/vulkan.h /usr/include/vulkan/vk_platform.h \
  /usr/include/vulkan/vulkan_core.h \
  /usr/include/vk_video/vulkan_video_codec_h264std.h \
@@ -241,8 +241,8 @@ projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: \
  /usr/include/vk_video/vulkan_video_codec_h265std.h \
  /usr/include/vk_video/vulkan_video_codec_h264std_decode.h \
  /usr/include/vk_video/vulkan_video_codec_h265std_decode.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Renderer3D.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Core.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Renderer3D.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Core.hpp \
  /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
  /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
@@ -302,7 +302,7 @@ projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
  /usr/include/c++/13/bits/ranges_util.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Mesh.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Mesh.hpp \
  /usr/include/c++/13/array /usr/include/c++/13/memory \
  /usr/include/c++/13/bits/stl_tempbuf.h \
  /usr/include/c++/13/bits/stl_uninitialized.h \
@@ -369,9 +369,9 @@ projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Scene.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Entity.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Components.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Scene.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Entity.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Components.hpp \
  /usr/include/glm/gtc/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_projection.hpp \
  /usr/include/glm/gtc/constants.hpp \
@@ -398,14 +398,14 @@ projects/backrooms/CMakeFiles/backrooms.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/uniform_int_dist.h \
  /usr/include/c++/13/bits/ranges_algo.h \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/Context.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/Pipeline.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/Swapchain.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Window.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/Context.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/Pipeline.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/Swapchain.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Window.hpp \
  /usr/include/GLFW/glfw3.h /usr/include/GL/gl.h /usr/include/GL/glext.h \
  /usr/include/KHR/khrplatform.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/imgui-src/imgui.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/imgui-src/imconfig.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/imgui-src/imgui.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/imgui-src/imconfig.h \
  /usr/include/string.h /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h

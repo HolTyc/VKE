@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-src/tiny_obj_loader.cc" "_deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o" "gcc" "_deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o.d"
+  "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-src/tiny_obj_loader.cc" "_deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o" "gcc" "_deps/tinyobjloader-build/CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

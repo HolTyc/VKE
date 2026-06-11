@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug
 
 # Utility rule file for vke_shaders.
 
@@ -75,45 +75,45 @@ CMakeFiles/vke_shaders: assets/shaders/rim.frag.spv
 CMakeFiles/vke_shaders: assets/shaders/toon.frag.spv
 CMakeFiles/vke_shaders: assets/shaders/toon.vert.spv
 
-assets/shaders/basic.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/basic.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compiling shader basic.frag"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/basic.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders/basic.frag.spv
+assets/shaders/basic.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/basic.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compiling shader basic.frag"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/basic.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders/basic.frag.spv
 
-assets/shaders/basic.vert.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/basic.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Compiling shader basic.vert"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/basic.vert -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders/basic.vert.spv
+assets/shaders/basic.vert.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/basic.vert
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Compiling shader basic.vert"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/basic.vert -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders/basic.vert.spv
 
-assets/shaders/checker.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/checker.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Compiling shader checker.frag"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/checker.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders/checker.frag.spv
+assets/shaders/checker.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/checker.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Compiling shader checker.frag"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/checker.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders/checker.frag.spv
 
-assets/shaders/matcap.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/matcap.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Compiling shader matcap.frag"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/matcap.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders/matcap.frag.spv
+assets/shaders/matcap.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/matcap.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Compiling shader matcap.frag"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/matcap.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders/matcap.frag.spv
 
-assets/shaders/normal.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/normal.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Compiling shader normal.frag"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/normal.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders/normal.frag.spv
+assets/shaders/normal.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/normal.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Compiling shader normal.frag"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/normal.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders/normal.frag.spv
 
-assets/shaders/rim.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/rim.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Compiling shader rim.frag"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/rim.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders/rim.frag.spv
+assets/shaders/rim.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/rim.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Compiling shader rim.frag"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/rim.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders/rim.frag.spv
 
-assets/shaders/toon.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/toon.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Compiling shader toon.frag"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/toon.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders/toon.frag.spv
+assets/shaders/toon.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/toon.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Compiling shader toon.frag"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/toon.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders/toon.frag.spv
 
-assets/shaders/toon.vert.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/toon.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Compiling shader toon.vert"
-	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/assets/shaders/toon.vert -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/assets/shaders/toon.vert.spv
+assets/shaders/toon.vert.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/toon.vert
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Compiling shader toon.vert"
+	/usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/assets/shaders/toon.vert -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/assets/shaders/toon.vert.spv
 
 vke_shaders: CMakeFiles/vke_shaders
 vke_shaders: assets/shaders/basic.frag.spv
@@ -136,6 +136,6 @@ CMakeFiles/vke_shaders.dir/clean:
 .PHONY : CMakeFiles/vke_shaders.dir/clean
 
 CMakeFiles/vke_shaders.dir/depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/CMakeFiles/vke_shaders.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/CMakeFiles/vke_shaders.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/vke_shaders.dir/depend
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build
 
 # Utility rule file for CompileShaders.
 
@@ -69,13 +69,13 @@ include CMakeFiles/CompileShaders.dir/progress.make
 CMakeFiles/CompileShaders: shaders/sprite.vert.spv
 CMakeFiles/CompileShaders: shaders/sprite.frag.spv
 
-shaders/sprite.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/shaders/sprite.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compiling sprite.frag"
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/shaders/sprite.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/shaders/sprite.frag.spv
+shaders/sprite.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/shaders/sprite.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compiling sprite.frag"
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/shaders/sprite.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/shaders/sprite.frag.spv
 
-shaders/sprite.vert.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/shaders/sprite.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Compiling sprite.vert"
-	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/shaders/sprite.vert -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/shaders/sprite.vert.spv
+shaders/sprite.vert.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/shaders/sprite.vert
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Compiling sprite.vert"
+	/usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/shaders/sprite.vert -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/shaders/sprite.vert.spv
 
 CompileShaders: CMakeFiles/CompileShaders
 CompileShaders: shaders/sprite.frag.spv
@@ -92,6 +92,6 @@ CMakeFiles/CompileShaders.dir/clean:
 .PHONY : CMakeFiles/CompileShaders.dir/clean
 
 CMakeFiles/CompileShaders.dir/depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine/build/CMakeFiles/CompileShaders.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/CMakeFiles/CompileShaders.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/CompileShaders.dir/depend
 

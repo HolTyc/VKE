@@ -1,7 +1,7 @@
 CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/scene/Mesh.cpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/scene/Mesh.cpp \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Mesh.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Mesh.hpp \
  /usr/include/vulkan/vulkan.h /usr/include/vulkan/vk_platform.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
@@ -352,9 +352,9 @@ CMakeFiles/vke.dir/engine/src/scene/Mesh.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/Context.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/vulkan/../Core.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-src/tiny_obj_loader.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/Context.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/vulkan/../Core.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-src/tiny_obj_loader.h \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/stl_map.h \

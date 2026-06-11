@@ -1,8 +1,8 @@
-if(NOT EXISTS "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/tinyobjloader-build/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/tinyobjloader-build/install_manifest.txt")
-endif(NOT EXISTS "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/tinyobjloader-build/install_manifest.txt")
+if(NOT EXISTS "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/tinyobjloader-build/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/tinyobjloader-build/install_manifest.txt")
+endif(NOT EXISTS "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/tinyobjloader-build/install_manifest.txt")
 
-file(READ "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/_deps/tinyobjloader-build/install_manifest.txt" files)
+file(READ "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/_deps/tinyobjloader-build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling $ENV{DESTDIR}${file}")

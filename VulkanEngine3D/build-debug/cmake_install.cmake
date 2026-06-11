@@ -1,4 +1,4 @@
-# Install script for directory: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+# Install script for directory: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,17 +44,17 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/tinyobjloader-build/cmake_install.cmake")
+  include("/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/tinyobjloader-build/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/projects/backrooms/cmake_install.cmake")
+  include("/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/projects/backrooms/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/projects/sandbox/cmake_install.cmake")
+  include("/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/projects/sandbox/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -65,5 +65,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

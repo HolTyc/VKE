@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D
+CMAKE_SOURCE_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build
+CMAKE_BINARY_DIR = /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build
 
 # Utility rule file for backrooms_shaders.
 
@@ -71,25 +71,25 @@ projects/backrooms/CMakeFiles/backrooms_shaders: assets/shaders/backrooms/ceilin
 projects/backrooms/CMakeFiles/backrooms_shaders: assets/shaders/backrooms/level.vert.spv
 projects/backrooms/CMakeFiles/backrooms_shaders: assets/shaders/backrooms/wall.frag.spv
 
-assets/shaders/backrooms/carpet.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/carpet.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compiling shader backrooms/carpet.frag"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/assets/shaders/backrooms
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/carpet.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/assets/shaders/backrooms/carpet.frag.spv
+assets/shaders/backrooms/carpet.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/carpet.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compiling shader backrooms/carpet.frag"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/assets/shaders/backrooms
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/carpet.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/assets/shaders/backrooms/carpet.frag.spv
 
-assets/shaders/backrooms/ceiling.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/ceiling.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Compiling shader backrooms/ceiling.frag"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/assets/shaders/backrooms
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/ceiling.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/assets/shaders/backrooms/ceiling.frag.spv
+assets/shaders/backrooms/ceiling.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/ceiling.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Compiling shader backrooms/ceiling.frag"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/assets/shaders/backrooms
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/ceiling.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/assets/shaders/backrooms/ceiling.frag.spv
 
-assets/shaders/backrooms/level.vert.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/level.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Compiling shader backrooms/level.vert"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/assets/shaders/backrooms
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/level.vert -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/assets/shaders/backrooms/level.vert.spv
+assets/shaders/backrooms/level.vert.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/level.vert
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Compiling shader backrooms/level.vert"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/assets/shaders/backrooms
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/level.vert -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/assets/shaders/backrooms/level.vert.spv
 
-assets/shaders/backrooms/wall.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/wall.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Compiling shader backrooms/wall.frag"
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/assets/shaders/backrooms
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && /usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/shaders/wall.frag -o /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/assets/shaders/backrooms/wall.frag.spv
+assets/shaders/backrooms/wall.frag.spv: /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/wall.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Compiling shader backrooms/wall.frag"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/cmake -E make_directory /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/assets/shaders/backrooms
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && /usr/bin/glslangValidator -V /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/shaders/wall.frag -o /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/assets/shaders/backrooms/wall.frag.spv
 
 backrooms_shaders: assets/shaders/backrooms/carpet.frag.spv
 backrooms_shaders: assets/shaders/backrooms/ceiling.frag.spv
@@ -104,10 +104,10 @@ projects/backrooms/CMakeFiles/backrooms_shaders.dir/build: backrooms_shaders
 .PHONY : projects/backrooms/CMakeFiles/backrooms_shaders.dir/build
 
 projects/backrooms/CMakeFiles/backrooms_shaders.dir/clean:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms && $(CMAKE_COMMAND) -P CMakeFiles/backrooms_shaders.dir/cmake_clean.cmake
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms && $(CMAKE_COMMAND) -P CMakeFiles/backrooms_shaders.dir/cmake_clean.cmake
 .PHONY : projects/backrooms/CMakeFiles/backrooms_shaders.dir/clean
 
 projects/backrooms/CMakeFiles/backrooms_shaders.dir/depend:
-	cd /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build/projects/backrooms/CMakeFiles/backrooms_shaders.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build/projects/backrooms/CMakeFiles/backrooms_shaders.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : projects/backrooms/CMakeFiles/backrooms_shaders.dir/depend
 

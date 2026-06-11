@@ -1,7 +1,7 @@
 CMakeFiles/vke.dir/engine/src/core/Window.cpp.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/src/core/Window.cpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/src/core/Window.cpp \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/engine/include/vke/Window.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/engine/include/vke/Window.hpp \
  /usr/include/vulkan/vulkan.h /usr/include/vulkan/vk_platform.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \

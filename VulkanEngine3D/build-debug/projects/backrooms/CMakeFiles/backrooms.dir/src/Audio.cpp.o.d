@@ -1,8 +1,8 @@
 projects/backrooms/CMakeFiles/backrooms.dir/src/Audio.cpp.o: \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/Audio.cpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/Audio.cpp \
  /usr/include/stdc-predef.h \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/projects/backrooms/src/Audio.hpp \
- /home/vakhaib/Desktop/Programy/Grafika/VulkanEngine3D/build-debug/_deps/miniaudio-src/miniaudio.h \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/projects/backrooms/src/Audio.hpp \
+ /home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/miniaudio-src/miniaudio.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h /usr/include/pthread.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
