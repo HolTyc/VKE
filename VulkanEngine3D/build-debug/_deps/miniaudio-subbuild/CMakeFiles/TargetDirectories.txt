@@ -1,3 +1,0 @@
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/miniaudio-subbuild/CMakeFiles/miniaudio-populate.dir
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/miniaudio-subbuild/CMakeFiles/edit_cache.dir
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/miniaudio-subbuild/CMakeFiles/rebuild_cache.dir

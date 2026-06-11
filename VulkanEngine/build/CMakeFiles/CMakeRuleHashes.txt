@@ -1,4 +1,0 @@
-# Hashes of file build rules.
-cf3662837d29f0b1a17ea39d48e4f1d1 CMakeFiles/CompileShaders
-c6c7a555d356d5dcf0e117b596abc90e shaders/sprite.frag.spv
-dc0a9f0fa14390e850238bf48f79306f shaders/sprite.vert.spv

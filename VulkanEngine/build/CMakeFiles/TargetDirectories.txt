@@ -1,5 +1,0 @@
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/CMakeFiles/imgui.dir
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/CMakeFiles/VulkanEngine.dir
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/CMakeFiles/CompileShaders.dir
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/CMakeFiles/edit_cache.dir
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine/build/CMakeFiles/rebuild_cache.dir

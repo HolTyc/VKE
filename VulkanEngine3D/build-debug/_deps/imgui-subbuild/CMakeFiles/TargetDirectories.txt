@@ -1,3 +1,0 @@
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/CMakeFiles/imgui-populate.dir
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/CMakeFiles/edit_cache.dir
-/home/vakhaib/Desktop/Programy/Grafika/VKE/VulkanEngine3D/build-debug/_deps/imgui-subbuild/CMakeFiles/rebuild_cache.dir
