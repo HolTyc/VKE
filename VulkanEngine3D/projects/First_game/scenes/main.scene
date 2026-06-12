@@ -8,14 +8,6 @@
         "primary": true
       },
       "name": "Main Camera",
-      "scripts": [
-        {
-          "props": {
-            "speed": -1.649999976158142
-          },
-          "type": "Rotator"
-        }
-      ],
       "transform": {
         "position": [
           0.0,
@@ -119,9 +111,10 @@
       "scripts": [
         {
           "props": {
-            "speed": 105.94999694824219
+            "speed": 5.0,
+            "turnSpeed": 120.0
           },
-          "type": "Rotator"
+          "type": "KeyboardMover"
         }
       ],
       "transform": {
